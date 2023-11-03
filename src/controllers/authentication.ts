@@ -14,13 +14,14 @@ export const login = async (req: express.Request, res: express.Response) => {
         if (!user) {
             return res.status(400).json({ message: 'Invalid credentials' })
         }
-    const encryptedPassword = authentication(user.authentication.salt, password)
+        const encryptedPassword = authentication(user.authentication.salt, password)
         if (authentication(user.authentication.salt, password) !== encryptedPassword) {
             return res.status(403).json({ message: 'Invalid password' })
         }
         const salt = random()
-        user.authentication.sessionToken = authentication(salt, user._id.toString() )
-        res.cookie('sessionToken', user.authentication.sessionToken, { domain : 'localhost', path : '/'})
+        user.authentication.sessionToken = authentication(salt, user._id.toString())
+        await user.save()
+        res.cookie('USER-AUTH', user.authentication.sessionToken, { domain: 'localhost', path: '/' })
         return res.status(200).json({ message: 'Login successful' })
     }
     catch (error) {
@@ -36,25 +37,25 @@ export const register = async (req: express.Request, res: express.Response) => {
         if (!email || !username || !password) {
             return res.status(400).json({ message: 'Missing required fields' })
         }
-    const existingUser = await getUserByEmail(email)
-    
-    if (existingUser) {
-        return res.status(400).json({ message: 'User already exists' })
-    }
+        const existingUser = await getUserByEmail(email)
 
-    const salt = random()
-    const user = await createUser({
-        email,
-        username,
-        authentication: {
-            salt, 
-            password: authentication(salt, password)
+        if (existingUser) {
+            return res.status(400).json({ message: 'User already exists' })
         }
-    })
-return res.status(200).json({ message: 'User created successfully' }).end()
+
+        const salt = random()
+        const user = await createUser({
+            email,
+            username,
+            authentication: {
+                salt,
+                password: authentication(salt, password)
+            }
+        })
+        return res.status(200).json({ message: 'User created successfully' }).end()
 
     }
-        catch (error) {
-            return res.status(500).json({ message: 'Internal server error' })
-        }
+    catch (error) {
+        return res.status(500).json({ message: 'Internal server error' })
+    }
 }

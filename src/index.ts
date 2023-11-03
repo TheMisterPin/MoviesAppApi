@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 import router from './router';
 
 
@@ -30,6 +30,7 @@ server.listen(2323, () => {
 });
 
 const MONGO_URL = 'mongodb+srv://TheMisterPin:Veleta22@cluster0.wtlilfh.mongodb.net/'
+// const MONGO_URL = 'mongodb://localhost:27017/test'
 
 mongoose.Promise = Promise
 mongoose.connect(MONGO_URL)
