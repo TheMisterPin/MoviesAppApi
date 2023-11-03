@@ -4,6 +4,7 @@ import { random } from '../helpers'
 import { authentication } from '../helpers/index';
 
 
+
 export const login = async (req: express.Request, res: express.Response) => {
     try {
         const { email, password } = req.body
@@ -52,7 +53,7 @@ export const register = async (req: express.Request, res: express.Response) => {
                 password: authentication(salt, password)
             }
         })
-        return res.status(200).json({ message: 'User created successfully' }).end()
+        return res.status(201).json({ message: 'User created successfully' }).end()
 
     }
     catch (error) {
