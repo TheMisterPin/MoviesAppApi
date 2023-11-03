@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-import { MovieModel } from "./movies";
+
 
 const GenreSchema = new mongoose.Schema({
     genre: {type: String , required: true, unique: true},
-    movies: {type: MovieModel, required: true,},
+    movies: {type: [String], required: true,},
 
     })
 

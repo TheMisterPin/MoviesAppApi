@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { deleteGenre, getAllGenres } from 'controllers/genreController';
+import { deleteGenre, getAllGenres } from '../controllers/genreController';
 
 
 
