@@ -6,7 +6,7 @@ import compression from 'compression';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import router from './router';
-
+require('dotenv').config();
 
 const app = express();
 
@@ -25,12 +25,13 @@ app.use(cookieParser());
 
 const server = http.createServer(app);
 
-server.listen(2323, () => {
-    console.log('Server is running on port 2323');
+const PORT = process.env.PORT || 2323;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
-const MONGO_URL = 'mongodb+srv://TheMisterPin:Veleta22@cluster0.wtlilfh.mongodb.net/'
-// const MONGO_URL = 'mongodb://localhost:27017/test'
+const MONGO_URL = process.env.MONGO_URL
+
 
 mongoose.Promise = Promise
 mongoose.connect(MONGO_URL)

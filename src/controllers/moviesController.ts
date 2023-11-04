@@ -63,8 +63,8 @@ export const updateMovieByTitle = async (req: express.Request, res: express.Resp
 };
 export const uploadMovie = async (req: express.Request, res: express.Response) => {
     try {
-        const { title, description, poster, genre, length, rating, trailer, year } = req.body;
-        if (!title || !description || !poster || !genre || !length || !rating || !trailer || !year) {
+        const { title,submitter, description, poster, genre, length, rating, trailer, year } = req.body;
+        if (!title|| !submitter || !description || !poster || !genre || !length || !rating || !trailer || !year ) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 

@@ -2,8 +2,7 @@ import express from 'express';
 
 import { deleteGenre, getAllGenres } from '../controllers/genreController';
 import { GenreModel, createGenre } from '../db/genre';
-import { isAuthenticated } from 'middlewares';
-import { isCreator } from '../middlewares/index';
+import { isCreator, isAuthenticated} from '../middlewares/index';
 
 
 
