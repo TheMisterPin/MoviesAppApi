@@ -1,4 +1,4 @@
-import { MovieModel } from "db/movies";
+import { MovieModel } from "../db/movies";
 import { getUserBySessionToken } from "../db/users";
 import express from "express";
 import { get } from "lodash";
@@ -45,7 +45,7 @@ export const isCreator = (model: mongoose.Model<any>) => {
         const { id } = req.params;
         const resource = await model.findById(id);
         if (!resource) {
-          return res.status(404).json({ message: "Resoure not found" });
+          return res.status(404).json({ message: "Resource not found" });
         }
         const currentUserId = get(req, "identity._id") as string;
         if (resource.creator.toString() !== currentUserId.toString()) {
