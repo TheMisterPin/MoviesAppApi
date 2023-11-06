@@ -18,6 +18,7 @@
     "@types/cors": "^2.8.15",
     "@types/express": "^4.17.20",
     "@types/lodash": "^4.14.200",
+    "@types/winston": "^2.4.4",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
@@ -33,6 +34,7 @@
     "lodash": "^4.17.21",
     "mongo": "^0.1.0",
     "mongoose": "^7.6.4",
-    "mongosh": "^2.0.2"
+    "mongosh": "^2.0.2",
+    "winston": "^3.11.0"
   }
 }

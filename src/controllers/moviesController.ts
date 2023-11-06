@@ -1,5 +1,5 @@
 import express from 'express';
-import { getMovies, deleteMovieById, updateMovieById, getMovieByTitle, createMovie, MovieModel } from '../db/movies';
+import { getMovies, deleteMovieById, updateMovieById, getMovieByName, createMovie, MovieModel } from '../db/movies';
 
 
 
@@ -13,15 +13,21 @@ export const getAllMovies = async (req: express.Request, res: express.Response) 
 
 }
 
-export const getMoviesByTitle = async (req: express.Request, res: express.Response) => {
+import { Request, Response } from 'express';
+
+
+export const getMovieByTitle = async (req: Request, res: Response) => {
     try {
         const title = req.params.title;
+        console.log(`Fetching movie with title: ${title}`); 
         const movie = await MovieModel.findOne({ title: title });
         if (!movie) {
+            console.log(`Movie with title "${title}" not found.`); 
             return res.status(404).json({ message: 'Movie not found' });
         }
-        return res.status(200).json(movie);
+        console.log(`Movie found: ${JSON.stringify(movie)}`); 
     } catch (error) {
+        console.error(`Error fetching movie with title "${req.params.title}": ${error.message}`); 
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 };
@@ -63,22 +69,55 @@ export const updateMovieByTitle = async (req: express.Request, res: express.Resp
 };
 export const uploadMovie = async (req: express.Request, res: express.Response) => {
     try {
-        const { title,submitter, description, poster, genre, length, rating, trailer, year } = req.body;
-        if (!title|| !submitter || !description || !poster || !genre || !length || !rating || !trailer || !year ) {
+        const { title, description, poster, genre, length, rating,votes, trailer, year } = req.body;
+        if (!title  || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes ) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
-        const existingMovie = await getMovieByTitle(title);
+        const existingMovie = await getMovieByName(title);
 
         if (existingMovie) {
             return res.status(409).json({ message: 'Movie already exists' });
         }
 
 
-        const newMovie = await createMovie({ title, description, poster, genre, length, rating, trailer, year });
+        const newMovie = await createMovie({ title, description, poster, genre, length, rating, trailer, year, votes });
         return res.status(201).json(newMovie);
 
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 };
+
+export const getMovieByIdController = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    console.log(`Fetching movie with ID: ${id}`);
+    try {
+      const movie = await MovieModel.findById(id);
+      if (!movie) {
+        console.log(`Movie not found with ID: ${id}`);
+        return res.status(404).json({ message: 'Movie not found' });
+      }
+      return res.json(movie);
+    } catch (error) {
+      console.error(`Error fetching movie with ID "${id}": ${error.message}`);
+      return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+  };
+  
+  
+  export const getMovieByTitleController = async (req: Request, res: Response) => {
+    const { title } = req.params;
+    console.log(`Fetching movie with title: ${title}`);
+    try {
+      const movie = await MovieModel.findOne({ title: title });
+      if (!movie) {
+        console.log(`Movie not found with title: ${title}`);
+        return res.status(404).json({ message: 'Movie not found' });
+      }
+      return res.json(movie);
+    } catch (error) {
+      console.error(`Error fetching movie with title "${title}": ${error.message}`);
+      return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+  };

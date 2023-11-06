@@ -25,9 +25,8 @@ app.use(cookieParser());
 
 const server = http.createServer(app);
 
-const PORT = process.env.PORT || 2323;
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+server.listen(2323, () => {
+    console.log('Server is running on port 2323');
 });
 
 const MONGO_URL = process.env.MONGO_URL
