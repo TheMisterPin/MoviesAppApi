@@ -1,28 +1,26 @@
 import express from 'express';
+import prisma from '../../db/client';
 
-
-import { getGenres, deleteGenreById, getGenreByName, createGenre, GenreModel, } from '../models/genre.model';
-
-
-export const getAllGenres = async (req: express.Request, res: express.Response) => {
+export const getAllGenres = async (req: express.Request, res: express.Response)=> {
     try {
-        const genres = await getGenres();
-        return res.status(200).json(genres)
+        const genres = await prisma.genre.findMany();
+        return res.status(200).json(genres);
     } catch (error) {
-        res.status(400)
+        return res.status(400).json({ error: error.message });
     }
+};
 
-}
-
-export const deleteGenre = async (req: express.Request, res: express.Response) => {
+export const deleteGenre = async (req: express.Request, res: express.Response)=> {
     try {
-        const deletedGenre = await deleteGenreById(req.params.id);
-        return res.status(200).json(deletedGenre)
+        const deletedGenre = await prisma.genre.delete({ where: { id: req.params.id } });
+        if (!deletedGenre) {
+            return res.status(404).json({ message: 'Genre not found' });
+        }
+        return res.status(200).json(deletedGenre);
     } catch (error) {
-        res.status(400)
+        return res.status(400).json({ error: error.message });
     }
-
-}
+};
 
 export const uploadGenre = async (req: express.Request, res: express.Response) => {
     try {
@@ -31,16 +29,13 @@ export const uploadGenre = async (req: express.Request, res: express.Response) =
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
-        const existingGenre = await getGenreByName(genre);
-
+        const existingGenre = await prisma.genre.findUnique({ where: { genre } });
         if (existingGenre) {
             return res.status(409).json({ message: 'Genre already exists' });
         }
 
-        
-        const newGenre = await createGenre({ genre, image });
+        const newGenre = await prisma.genre.create({ data: { genre, image } });
         return res.status(201).json(newGenre);
-
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
@@ -48,13 +43,15 @@ export const uploadGenre = async (req: express.Request, res: express.Response) =
 
 export const updateGenreByName = async (req: express.Request, res: express.Response) => {
     try {
-        const genreParam = req.params.genre;
+        const { genre: genreParam } = req.params;
         const updateData = req.body;
-        const genre = await GenreModel.findOneAndUpdate({ genre: genreParam }, updateData, { new: true });
+        
         if (!genreParam) {
-            return res.status(404).json({ message: 'Genre not found' });
+            return res.status(400).json({ message: 'Missing required genre parameter' });
         }
-        return res.status(200).json(genre);
+
+        const updatedGenre = await prisma.genre.update({ where: { genre: genreParam }, data: updateData });
+        return res.status(200).json(updatedGenre);
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }

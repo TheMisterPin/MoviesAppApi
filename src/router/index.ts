@@ -10,6 +10,6 @@ export default (): express.Router => {
     autenthication(router)
     users(router)
     genres(router)
-    movies(router)    
+    movies(router)   
     return router
 }

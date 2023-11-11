@@ -1,54 +1,60 @@
 import express from 'express';
-import { getUsers, deleteUserById, updateUserById } from '../models/users.model';
+import prisma from "../../db/client";
 
-export const getAllUsers =async (req : express.Request, res: express.Response) => {
+export const getAllUsers = async (req: express.Request, res: express.Response) => {
     try {
-        const users = await getUsers();
-        return res.status(200).json(users)
+        const users = await prisma.user.findMany();
+        return res.status(200).json(users);
     } catch (error) {
-    res.status(400)
+        return res.status(400).json({ error: error.message });
     }
 
 }
 
-export const deleteUser =async (req : express.Request, res: express.Response) => {
+export const deleteUser = async (req: express.Request, res: express.Response) => {
     try {
-        const deletedUser = await deleteUserById(req.params.id);
-        return res.status(200).json(deletedUser)
+        const deletedUser = await prisma.user.delete({
+            where: { id: req.params.id }
+        });
+        return res.status(200).json(deletedUser);
     } catch (error) {
-    res.status(400)
+        return res.status(400).json({ error: error.message });
     }
-
 }
 
-export const updateUser =async (req : express.Request, res: express.Response) => {
+export const updateUser = async (req: express.Request, res: express.Response) => {
     try {
-        const {id} = req.params
-        const {username} = req.body
-        if (!username) {
-            return res.status(400).json({ message: 'Missing required fields' })
+        const { id } = req.params;
+        const { username, email, password } = req.body;
+
+        if (!username || !email || !password) {
+            return res.status(400).json({ message: 'Missing required fields' });
         }
-        const user = await updateUserById(id, username)
-        await user.save();
-        return res.status(200).json(user)
-        
+
+        const updatedUser = await prisma.user.update({
+            where: { id },
+            data: { username }
+        });
+
+        return res.status(200).json(updatedUser);
     } catch (error) {
-        res.status(400)
-    }}
+        return res.status(400).json({ error: error.message });
+    }
+};
 
 
-    // export const addMovieToUser = async (req: Request, res: Response) => {
-    //     res.status(500).send("added movie")
-    // }
-    
-    // export const deleteUser = async (req: Request, res: Response) => {
-    //     const { userId } = req.params
-    
-    //     try {
-    //         await UserModel.findByIdAndDelete({_id: userId})
-    //         res.status(200).send("User deleted")
-    //     } catch (error) {
-    //         res.status(500).json(error)
-    
-    //     }
-    // }
+export const getUsers = () => prisma.user.findMany();
+
+export const getUserByEmail = (email: string) => prisma.user.findUnique({ where: { email } });
+
+
+export const getUserById = (id: string) => prisma.user.findUnique({
+    where: { id },
+    include: { movies: true }
+});
+export const getUserByUsername = (username: string) => prisma.user.findUnique({
+    where: { username },
+    include: { movies: true }
+});
+
+
