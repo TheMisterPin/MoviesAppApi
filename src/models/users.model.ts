@@ -7,7 +7,7 @@ interface IUserDocument extends Document {
     username: string,
     email: string,
     password: string,
-    movies: [{type: Schema.Types.ObjectId}],
+    movies: mongoose.Types.ObjectId[],
     createdAt: Date,
     updatedAt: Date,
     authentication: any
@@ -18,8 +18,7 @@ interface IUserDocument extends Document {
 const UserSchema = new Schema<IUserDocument>({
     username: {type: String, required: true, unique: true},
     email: {type: String, required: true, unique: true},
-    movies: [{type: Schema.Types.ObjectId, ref: 'Movies'}],
-
+    movies: [{ type: Schema.Types.ObjectId, ref: 'Movies' }],
     authentication : {
         password: {type: String, required: true, select: false},
         salt : {type: String, select: false},

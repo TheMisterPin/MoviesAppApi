@@ -12,7 +12,7 @@ interface MovieInterface extends Document  {
     year: number;
     createdAt: Date;
     updatedAt: Date;
-    creator : Schema.Types.ObjectId
+    creator: mongoose.Types.ObjectId
 
 }
 
@@ -27,7 +27,7 @@ const MovieSchema = new Schema<MovieInterface>({
     rating: { type: Number, required: true, unique: false },
     trailer: { type: String, required: true, unique: true },
     year: { type: Number, required: true, unique: false },
-    creator: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    creator: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
 
 

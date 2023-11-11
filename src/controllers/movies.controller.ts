@@ -121,9 +121,10 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
 
   export const uploadMovie = async (req: express.Request, res: express.Response) => {
     try {
-        const { title, description, poster, genre, length, rating,votes, trailer, year } = req.body;
-        const {userId} = req.params
-        if (!title  || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes ) {
+        const { title, description, poster, genre, length, rating, votes, trailer, year } = req.body;
+        const { userId } = req.params;
+
+        if (!title || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
@@ -133,14 +134,16 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
             return res.status(409).json({ message: 'Movie already exists' });
         }
 
-
         const newMovie = await MovieModel.create({ title, description, poster, genre, length, rating, trailer, year, votes });
-         await UserModel.findByIdAndUpdate({_id: userId},), {
-            $push: {movies: newMovie._id}
-        }
-        await GenreModel.findOne({genre: genre}),{
-            $push: {movies: newMovie._id}
-        }
+
+        await UserModel.findByIdAndUpdate(userId, {
+            $push: { movies: newMovie._id }
+        });
+
+        await GenreModel.findOneAndUpdate({ genre}, {
+            $push: { movies: newMovie._id }
+        });
+
         return res.status(201).json(newMovie);
 
     } catch (error) {
