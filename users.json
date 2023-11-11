@@ -3,14 +3,6 @@
             "image": "https://i2-prod.mirror.co.uk/incoming/article3298686.ece/ALTERNATES/n615/MOVIE-MAIN.jpg"
         },
         {
-            "genre": "Romance",
-            "image": "https://hips.hearstapps.com/hmg-prod/images/best-romance-movies-1644594430.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
-        },
-        {
-            "genre": "Sci-Fi",
-            "image": "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/01/7-Cerebral-Sci-Fi-Movies-to-Make-You-Think.jpg"
-        },
-        {
             "genre": "Horror",
             "image": "https://bloody-disgusting.com/talkback/uploads/editor/3t/j3d2dlc2xgwz.jpg"
         },
@@ -21,7 +13,21 @@
         {
             "genre": "Drama",
             "image": "https://hips.hearstapps.com/hmg-prod/images/best-dramas-index-1651510350.jpg"
+        }
+    ]
+
+
+
+
+        
+        {
+            "genre": "Romance",
+            "image": "https://hips.hearstapps.com/hmg-prod/images/best-romance-movies-1644594430.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
         },
+        {
+            "genre": "Sci-Fi",
+            "image": "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/01/7-Cerebral-Sci-Fi-Movies-to-Make-You-Think.jpg"
+        }
 
 
 
@@ -89,6 +95,13 @@
             "password": "securePass12",
             "email": "StevenClark@gmail.com"
         },
+
+
+
+
+
+
+
         {
             "username": "OliviaLewis",
             "password": "securePass13",

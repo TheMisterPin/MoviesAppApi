@@ -1,5 +1,5 @@
 import express from 'express';
-import { getMovies, deleteMovieById, updateMovieById, getMovieByName, MovieModel } from '../models/moviesmiei';
+import { getMovies, deleteMovieById, updateMovieById, getMovieByName, MovieModel } from '../models/movies.model';
 import { Request, Response } from 'express';
 import UserModel from '../models/users.model';
 import { GenreModel } from '../models/genre.model';
@@ -166,6 +166,43 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
 
         return res.status(201).json(newMovie);
 
+    } catch (error) {
+        return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};
+
+
+export const bulkUploadMovies = async (req: express.Request, res: express.Response) => {
+    try {
+        const movies = req.body;
+        if (!Array.isArray(movies) || movies.length === 0) {
+            return res.status(400).json({ message: 'No movies provided for upload' });
+        }
+
+        const uploadPromises = movies.map(async (movie) => {
+            const { title, description, poster, genre, length, rating, votes, trailer, year, userId } = movie;
+
+            if (!title || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes || !userId) {
+                return null; 
+            }
+
+            const existingMovie = await MovieModel.findOne({ title });
+            if (existingMovie) {
+                return null; 
+            }
+
+            const newMovie = new MovieModel({ title, description, poster, genre, length, rating, trailer, year, votes, creator: userId });
+            await newMovie.save();
+
+            await UserModel.findByIdAndUpdate(userId, { $push: { movies: newMovie._id } });
+            await GenreModel.findOneAndUpdate({ genre }, { $push: { movies: newMovie._id } }, { new: true });
+
+            return newMovie;
+        });
+
+        const uploadedMovies = (await Promise.all(uploadPromises)).filter(movie => movie !== null);
+        
+        return res.status(201).json(uploadedMovies);
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }

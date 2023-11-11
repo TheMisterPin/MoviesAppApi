@@ -59,3 +59,32 @@ export const updateGenreByName = async (req: express.Request, res: express.Respo
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 };
+
+export const bulkUploadGenres = async (req: express.Request, res: express.Response) => {
+    try {
+        const genres = req.body;
+        if (!Array.isArray(genres) || genres.length === 0) {
+            return res.status(400).json({ message: 'No genres provided for upload' });
+        }
+
+        const uploadedGenres = [];
+        for (const { genre, image } of genres) {
+            if (!genre || !image) {
+                continue; // Skip invalid entries
+            }
+
+            const existingGenre = await GenreModel.findOne({ genre });
+            if (existingGenre) {
+                continue; // Skip existing genres
+            }
+
+            const newGenre = new GenreModel({ genre, image });
+            await newGenre.save();
+            uploadedGenres.push(newGenre);
+        }
+
+        return res.status(201).json(uploadedGenres);
+    } catch (error) {
+        return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};

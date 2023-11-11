@@ -1,8 +1,7 @@
 import express from 'express';
-
 import { deleteUser, getAllUsers } from '../controllers/users.controller'
 import { updateUserById } from '../models/users.model'
-import { getUserById } from 'models/mieiusers'
+import { getUserById } from '../models/users.model'
 
  
 
