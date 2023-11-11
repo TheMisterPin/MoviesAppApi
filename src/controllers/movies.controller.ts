@@ -1,5 +1,8 @@
 import express from 'express';
-import { getMovies, deleteMovieById, updateMovieById, getMovieByName, createMovie, MovieModel } from '../db/movies';
+import { getMovies, deleteMovieById, updateMovieById, getMovieByName, createMovie, MovieModel } from '../models/moviesmiei';
+import { Request, Response } from 'express';
+import UserModel from '../models/users.model';
+import { GenreModel } from '../models/genre.model';
 
 
 
@@ -13,7 +16,7 @@ export const getAllMovies = async (req: express.Request, res: express.Response) 
 
 }
 
-import { Request, Response } from 'express';
+
 
 
 export const getMovieByTitle = async (req: Request, res: Response) => {
@@ -67,27 +70,6 @@ export const updateMovieByTitle = async (req: express.Request, res: express.Resp
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 };
-export const uploadMovie = async (req: express.Request, res: express.Response) => {
-    try {
-        const { title, description, poster, genre, length, rating,votes, trailer, year } = req.body;
-        if (!title  || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes ) {
-            return res.status(400).json({ message: 'Missing required fields' });
-        }
-
-        const existingMovie = await getMovieByName(title);
-
-        if (existingMovie) {
-            return res.status(409).json({ message: 'Movie already exists' });
-        }
-
-
-        const newMovie = await createMovie({ title, description, poster, genre, length, rating, trailer, year, votes });
-        return res.status(201).json(newMovie);
-
-    } catch (error) {
-        return res.status(500).json({ message: 'Internal server error', error: error.message });
-    }
-};
 
 export const getMovieByIdController = async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -108,7 +90,6 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
   
   export const getMovieByTitleController = async (req: Request, res: Response) => {
     const { title } = req.params;
-    console.log(`Fetching movie with title: ${title}`);
     try {
       const movie = await MovieModel.findOne({ title: title });
       if (!movie) {
@@ -121,3 +102,48 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
       return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
   };
+  export const getMovieByGenreController = async (req: Request, res: Response) => {
+    const { genre } = req.params;
+    try {
+      const movie = await MovieModel.find({ genre : genre });
+      if (!movie) {
+        console.log(`Movie not found with genre: ${genre}`);
+        return res.status(404).json({ message: 'Movie not found' });
+      }
+      return res.json(movie);
+    } catch (error) {
+      console.error(`Error fetching movie with title "${genre}": ${error.message}`);
+      return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+  };
+
+
+
+  export const uploadMovie = async (req: express.Request, res: express.Response) => {
+    try {
+        const { title, description, poster, genre, length, rating,votes, trailer, year } = req.body;
+        const {userId} = req.params
+        if (!title  || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes ) {
+            return res.status(400).json({ message: 'Missing required fields' });
+        }
+
+        const existingMovie = await getMovieByName(title);
+
+        if (existingMovie) {
+            return res.status(409).json({ message: 'Movie already exists' });
+        }
+
+
+        const newMovie = await MovieModel.create({ title, description, poster, genre, length, rating, trailer, year, votes });
+         await UserModel.findByIdAndUpdate({_id: userId},), {
+            $push: {movies: newMovie._id}
+        }
+        await GenreModel.findOne({genre: genre}),{
+            $push: {movies: newMovie._id}
+        }
+        return res.status(201).json(newMovie);
+
+    } catch (error) {
+        return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};

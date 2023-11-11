@@ -29,7 +29,7 @@ server.listen(2323, () => {
     console.log('Server is running on port 2323');
 });
 
-const MONGO_URL = process.env.MONGO_URL
+const MONGO_URL = 'mongodb+srv://TheMisterPin:Veleta22@cluster0.wtlilfh.mongodb.net/'
 
 
 mongoose.Promise = Promise

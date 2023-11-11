@@ -1,4 +1,4 @@
-import { getUserBySessionToken } from "../db/users";
+import { getUserBySessionToken } from "../models/users.model";
 import express from "express";
 import { get } from "lodash";
 

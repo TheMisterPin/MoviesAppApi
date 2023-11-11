@@ -1,7 +1,5 @@
 import express from 'express';
-
-
-import { getUsers, deleteUserById, updateUserById } from '../db/users';
+import { getUsers, deleteUserById, updateUserById } from '../models/users.model';
 
 export const getAllUsers =async (req : express.Request, res: express.Response) => {
     try {
@@ -37,3 +35,20 @@ export const updateUser =async (req : express.Request, res: express.Response) =>
     } catch (error) {
         res.status(400)
     }}
+
+
+    // export const addMovieToUser = async (req: Request, res: Response) => {
+    //     res.status(500).send("added movie")
+    // }
+    
+    // export const deleteUser = async (req: Request, res: Response) => {
+    //     const { userId } = req.params
+    
+    //     try {
+    //         await UserModel.findByIdAndDelete({_id: userId})
+    //         res.status(200).send("User deleted")
+    //     } catch (error) {
+    //         res.status(500).json(error)
+    
+    //     }
+    // }

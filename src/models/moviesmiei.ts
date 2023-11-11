@@ -1,6 +1,23 @@
-import mongoose from "mongoose";
+import mongoose, {Document, model, Schema, } from 'mongoose';
 
-const MovieSchema = new mongoose.Schema({
+interface MovieInterface extends Document  {
+    title: string;
+    description: string;
+    poster: string;
+    genre: string;
+    length: number;
+    votes: number;
+    rating: number;
+    trailer: string;
+    year: number;
+    createdAt: Date;
+    updatedAt: Date;
+    creator : Schema.Types.ObjectId
+
+}
+
+
+const MovieSchema = new Schema<MovieInterface>({
     title: { type: String, required: true, unique: true },
     description: { type: String, required: true, unique: false },
     poster: { type: String, required: true, unique: true },
@@ -10,14 +27,18 @@ const MovieSchema = new mongoose.Schema({
     rating: { type: Number, required: true, unique: false },
     trailer: { type: String, required: true, unique: true },
     year: { type: Number, required: true, unique: false },
-})
+    creator: [{type: Schema.Types.ObjectId, ref: 'User'}],
 
-export const MovieModel = mongoose.model('Movie', MovieSchema)
+
+
+}, {timestamps: true, versionKey: false})
+
+export const MovieModel = model<MovieInterface>("Movies", MovieSchema)
 
 export const getMovies = () => MovieModel.find()
 export const getMovieByGenre = (genre: string) => MovieModel.find({ genre })
-export const getMovieByName = (title: string) => MovieModel.findOne({ title })
-export const getMovieById = (id: string) => MovieModel.findById(id)
+export const getMovieByName = (title: string) => MovieModel.findOne({ title: title })
+export const getMovieById = (id: string) => MovieModel.findById({ _id: id })
 export const createMovie = (values: Record<string, any>) => new MovieModel(values).save().then(movie => movie.toObject())
-export const updateMovieById = (id: string, values: Record<string, any>) => MovieModel.findByIdAndUpdate(id, values)
+export const updateMovieById = (id: string, values: Record<string, any>) => MovieModel.findByIdAndUpdate({ _id: id }, values)
 export const deleteMovieById = (id: string) => MovieModel.findByIdAndDelete({ _id: id })

@@ -1,7 +1,7 @@
 import express from 'express';
 
 
-import { getGenres, deleteGenreById, getGenreByName, createGenre, } from '../db/genre';
+import { getGenres, deleteGenreById, getGenreByName, createGenre, } from '../models/genre.model';
 
 export const getAllGenres = async (req: express.Request, res: express.Response) => {
     try {
@@ -25,8 +25,8 @@ export const deleteGenre = async (req: express.Request, res: express.Response) =
 
 export const uploadGenre = async (req: express.Request, res: express.Response) => {
     try {
-        const { genre, movies,  } = req.body;
-        if (!movies || !genre) {
+        const { genre, movies,image  } = req.body;
+        if (!movies || !genre || !image) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
@@ -37,7 +37,7 @@ export const uploadGenre = async (req: express.Request, res: express.Response) =
         }
 
 
-        const newMovie = await createGenre({ movies, genre, });
+        const newMovie = await createGenre({ movies, genre, image});
         return res.status(201).json(newMovie);
 
     } catch (error) {

@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { deleteGenre, getAllGenres, uploadGenre } from '../controllers/genreController';
+import { deleteGenre, getAllGenres, uploadGenre } from '../controllers/genre.contoller';
 
 import { isAuthenticated} from '../middlewares/index';
 
