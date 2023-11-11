@@ -1,13 +1,5 @@
 import mongoose from "mongoose";
-import { authentication } from '../helpers/index';
-// interface UserInterface extends mongoose.Document{
-//     username: string;
-//     email: string;
-//     movies: string[];
-//     createdAt: Date;
-//     updatedAt: Date;
-//     authentication: any
-// }
+
 
 const UserSchema = new mongoose.Schema({
     username: {type: String, required: true, unique: true},

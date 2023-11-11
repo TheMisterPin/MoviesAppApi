@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { authentication } from '../helpers/index';
 import {Document, model, Schema} from 'mongoose';
 
 

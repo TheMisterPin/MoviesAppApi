@@ -1,7 +1,8 @@
 import express from 'express';
 
 
-import { getGenres, deleteGenreById, getGenreByName, createGenre, } from '../models/genre.model';
+import { getGenres, deleteGenreById, getGenreByName, createGenre, GenreModel, } from '../models/genre.model';
+
 
 export const getAllGenres = async (req: express.Request, res: express.Response) => {
     try {
@@ -25,8 +26,8 @@ export const deleteGenre = async (req: express.Request, res: express.Response) =
 
 export const uploadGenre = async (req: express.Request, res: express.Response) => {
     try {
-        const { genre, movies,image  } = req.body;
-        if (!movies || !genre || !image) {
+        const { genre, image } = req.body;
+        if (!genre || !image) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
@@ -36,10 +37,24 @@ export const uploadGenre = async (req: express.Request, res: express.Response) =
             return res.status(409).json({ message: 'Genre already exists' });
         }
 
+        
+        const newGenre = await createGenre({ genre, image });
+        return res.status(201).json(newGenre);
 
-        const newMovie = await createGenre({ movies, genre, image});
-        return res.status(201).json(newMovie);
+    } catch (error) {
+        return res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+};
 
+export const updateGenreByName = async (req: express.Request, res: express.Response) => {
+    try {
+        const genreParam = req.params.genre;
+        const updateData = req.body;
+        const genre = await GenreModel.findOneAndUpdate({ genre: genreParam }, updateData, { new: true });
+        if (!genreParam) {
+            return res.status(404).json({ message: 'Genre not found' });
+        }
+        return res.status(200).json(genre);
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error', error: error.message });
     }

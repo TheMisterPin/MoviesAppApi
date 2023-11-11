@@ -20,23 +20,23 @@ export const isOwner = async (req: express.Request, res: express.Response, next:
     }
 };
 
-export const isAuthenticated = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    try {
-        const sessionToken = req.cookies['USER-AUTH'];
-        if (!sessionToken) {
-            return res.status(401).json({ message: "No authentication token provided." });
-        }
-        const existingUser = await getUserBySessionToken(sessionToken);
-        if (!existingUser) {
-            return res.status(401).json({ message: "Invalid session token or user does not exist." });
-        }
+// export const isAuthenticated = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+//     try {
+//         const sessionToken = req.cookies['USER-AUTH'];
+//         if (!sessionToken) {
+//             return res.status(401).json({ message: "No authentication token provided." });
+//         }
+//         const existingUser = await getUserBySessionToken(sessionToken);
+//         if (!existingUser) {
+//             return res.status(401).json({ message: "Invalid session token or user does not exist." });
+//         }
         
-        next();
-    } catch (error) {
-        console.error("isAuthenticated error:", error);
-        return res.status(500).json({ message: "Internal server error while authenticating." });
-    }
-};
+//         next();
+//     } catch (error) {
+//         console.error("isAuthenticated error:", error);
+//         return res.status(500).json({ message: "Internal server error while authenticating." });
+//     }
+// };
 // export const isCreator = (model: mongoose.Model<any>) => {
 //     return async (req: Request, res: Response, next: NextFunction) => {
 //       try {

@@ -1,0 +1,435 @@
+[{
+            "genre": "Action",
+            "image": "https://i2-prod.mirror.co.uk/incoming/article3298686.ece/ALTERNATES/n615/MOVIE-MAIN.jpg"
+        },
+        {
+            "genre": "Romance",
+            "image": "https://hips.hearstapps.com/hmg-prod/images/best-romance-movies-1644594430.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
+        },
+        {
+            "genre": "Sci-Fi",
+            "image": "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/01/7-Cerebral-Sci-Fi-Movies-to-Make-You-Think.jpg"
+        },
+        {
+            "genre": "Horror",
+            "image": "https://bloody-disgusting.com/talkback/uploads/editor/3t/j3d2dlc2xgwz.jpg"
+        },
+        {
+            "genre": "Fantasy",
+            "image": "https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/06/best-fantasy-movies.jpg"
+        },
+        {
+            "genre": "Drama",
+            "image": "https://hips.hearstapps.com/hmg-prod/images/best-dramas-index-1651510350.jpg"
+        },
+
+
+
+
+
+
+
+        {
+            "username": "AlexSmith",
+            "password": "securePass1",
+            "email": "AlexSmith@gmail.com"
+        },
+        {
+            "username": "SamJohnson",
+            "password": "securePass2",
+            "email": "SamJohnson@gmail.com"
+        },
+        {
+            "username": "PatriciaHill",
+            "password": "securePass3",
+            "email": "PatriciaHill@gmail.com"
+        },
+        {
+            "username": "JerryWright",
+            "password": "securePass4",
+            "email": "JerryWright@gmail.com"
+        },
+        {
+            "username": "LisaGreen",
+            "password": "securePass5",
+            "email": "LisaGreen@gmail.com"
+        },
+        {
+            "username": "NancyMartinez",
+            "password": "securePass6",
+            "email": "NancyMartinez@gmail.com"
+        },
+        {
+            "username": "LauraTaylor",
+            "password": "securePass7",
+            "email": "LauraTaylor@gmail.com"
+        },
+        {
+            "username": "RobertBrown",
+            "password": "securePass8",
+            "email": "RobertBrown@gmail.com"
+        },
+        {
+            "username": "LindaDavis",
+            "password": "securePass9",
+            "email": "LindaDavis@gmail.com"
+        },
+        {
+            "username": "MichaelWilson",
+            "password": "securePass10",
+            "email": "MichaelWilson@gmail.com"
+        },
+        {
+            "username": "KarenMoore",
+            "password": "securePass11",
+            "email": "KarenMoore@gmail.com"
+        },
+        {
+            "username": "StevenClark",
+            "password": "securePass12",
+            "email": "StevenClark@gmail.com"
+        },
+        {
+            "username": "OliviaLewis",
+            "password": "securePass13",
+            "email": "OliviaLewis@gmail.com"
+        },
+        {
+            "username": "DanielYoung",
+            "password": "securePass14",
+            "email": "DanielYoung@gmail.com"
+        },
+        {
+            "username": "SophiaWalker",
+            "password": "securePass15",
+            "email": "SophiaWalker@gmail.com"
+        },
+        {
+            "username": "AnthonyHall",
+            "password": "securePass16",
+            "email": "AnthonyHall@gmail.com"
+        },
+        {
+            "username": "GraceAllen",
+            "password": "securePass17",
+            "email": "GraceAllen@gmail.com"
+        },
+        {
+            "username": "JackKing",
+            "password": "securePass18",
+            "email": "JackKing@gmail.com"
+        },
+        {
+            "username": "EmmaWright",
+            "password": "securePass19",
+            "email": "EmmaWright@gmail.com"
+        },
+        {
+            "username": "JohnScott",
+            "password": "securePass20",
+            "email": "JohnScott@gmail.com"
+        },
+        {
+            "username": "ChloeAdams",
+            "password": "securePass21",
+            "email": "ChloeAdams@gmail.com"
+        },
+        {
+            "username": "RyanBaker",
+            "password": "securePass22",
+            "email": "RyanBaker@gmail.com"
+        },
+        {
+            "username": "ZoeCampbell",
+            "password": "securePass23",
+            "email": "ZoeCampbell@gmail.com"
+        },
+        {
+            "username": "LoganEvans",
+            "password": "securePass24",
+            "email": "LoganEvans@gmail.com"
+        },
+        {
+            "username": "MadisonHill",
+            "password": "securePass25",
+            "email": "MadisonHill@gmail.com"
+        },
+        {
+            "username": "AidenJohnson",
+            "password": "securePass26",
+            "email": "AidenJohnson@gmail.com"
+        },
+        {
+            "username": "AvaJones",
+            "password": "securePass27",
+            "email": "AvaJones@gmail.com"
+        },
+        {
+            "username": "LucasLee",
+            "password": "securePass28",
+            "email": "LucasLee@gmail.com"
+        },
+        {
+            "username": "MiaMiller",
+            "password": "securePass29",
+            "email": "MiaMiller@gmail.com"
+        },
+        {
+            "username": "NoahSmith",
+            "password": "securePass30",
+            "email": "NoahSmith@gmail.com"
+        },
+        {
+            "username": "Alice Smith",
+            "password": "SecurePass1",
+            "email": "user1@example.com"
+        },
+        {
+            "username": "Bob Johnson",
+            "password": "SecurePass2",
+            "email": "user2@example.com"
+        },
+        {
+            "username": "Charlie Brown",
+            "password": "SecurePass3",
+            "email": "user3@example.com"
+        },
+        {
+            "username": "David Wilson",
+            "password": "SecurePass4",
+            "email": "user4@example.com"
+        },
+        {
+            "username": "Emma Davis",
+            "password": "SecurePass5",
+            "email": "user5@example.com"
+        },
+        {
+            "username": "Frank Taylor",
+            "password": "SecurePass6",
+            "email": "user6@example.com"
+        },
+        {
+            "username": "Grace Lee",
+            "password": "SecurePass7",
+            "email": "user7@example.com"
+        },
+        {
+            "username": "Hannah Martinez",
+            "password": "SecurePass8",
+            "email": "user8@example.com"
+        },
+        {
+            "username": "Isaac Clark",
+            "password": "SecurePass9",
+            "email": "user9@example.com"
+        },
+        {
+            "username": "James Anderson",
+            "password": "SecurePass10",
+            "email": "user10@example.com"
+        },
+        {
+            "username": "Lily White",
+            "password": "SecurePass11",
+            "email": "user11@example.com"
+        },
+        {
+            "username": "Mia Baker",
+            "password": "SecurePass12",
+            "email": "user12@example.com"
+        },
+        {
+            "username": "Noah Evans",
+            "password": "SecurePass13",
+            "email": "user13@example.com"
+        },
+        {
+            "username": "Olivia Adams",
+            "password": "SecurePass14",
+            "email": "user14@example.com"
+        },
+        {
+            "username": "Peter Harris",
+            "password": "SecurePass15",
+            "email": "user15@example.com"
+        },
+        {
+            "username": "Quinn Turner",
+            "password": "SecurePass16",
+            "email": "user16@example.com"
+        },
+        {
+            "username": "Rachel King",
+            "password": "SecurePass17",
+            "email": "user17@example.com"
+        },
+        {
+            "username": "Samuel Scott",
+            "password": "SecurePass18",
+            "email": "user18@example.com"
+        },
+        {
+            "username": "Taylor Walker",
+            "password": "SecurePass19",
+            "email": "user19@example.com"
+        },
+        {
+            "username": "Uma Mitchell",
+            "password": "SecurePass20",
+            "email": "user20@example.com"
+        },
+        {
+            "username": "Victor Murphy",
+            "password": "SecurePass21",
+            "email": "user21@example.com"
+        },
+        {
+            "username": "William Turner",
+            "password": "SecurePass22",
+            "email": "user22@example.com"
+        },
+        {
+            "username": "Xander Garcia",
+            "password": "SecurePass23",
+            "email": "user23@example.com"
+        },
+        {
+            "username": "Yara Hall",
+            "password": "SecurePass24",
+            "email": "user24@example.com"
+        },
+        {
+            "username": "Zoe Adams",
+            "password": "SecurePass25",
+            "email": "user25@example.com"
+        },
+        {
+            "username": "Aaron Robinson",
+            "password": "SecurePass26",
+            "email": "user26@example.com"
+        },
+        {
+            "username": "Bella Patterson",
+            "password": "SecurePass27",
+            "email": "user27@example.com"
+        },
+        {
+            "username": "Caleb Garcia",
+            "password": "SecurePass28",
+            "email": "user28@example.com"
+        },
+        {
+            "username": "Daisy Stewart",
+            "password": "SecurePass29",
+            "email": "user29@example.com"
+        },
+        {
+            "username": "Ethan Adams",
+            "password": "SecurePass30",
+            "email": "user30@example.com"
+        },
+        {
+            "username": "EmmaWilson",
+            "password": "securePass31",
+            "email": "EmmaWilson@gmail.com"
+        },
+        {
+            "username": "OliverBrown",
+            "password": "securePass32",
+            "email": "OliverBrown@gmail.com"
+        },
+        {
+            "username": "SophiaDavis",
+            "password": "securePass33",
+            "email": "SophiaDavis@gmail.com"
+        },
+        {
+            "username": "LiamGarcia",
+            "password": "securePass34",
+            "email": "LiamGarcia@gmail.com"
+        },
+        {
+            "username": "CharlotteGreen",
+            "password": "securePass35",
+            "email": "CharlotteGreen@gmail.com"
+        },
+        {
+            "username": "BenjaminHall",
+            "password": "securePass36",
+            "email": "BenjaminHall@gmail.com"
+        },
+        {
+            "username": "AmeliaHarris",
+            "password": "securePass37",
+            "email": "AmeliaHarris@gmail.com"
+        },
+        {
+            "username": "EthanHill",
+            "password": "securePass38",
+            "email": "EthanHill@gmail.com"
+        },
+        {
+            "username": "IsabellaJohnson",
+            "password": "securePass39",
+            "email": "IsabellaJohnson@gmail.com"
+        },
+        {
+            "username": "MasonJones",
+            "password": "securePass40",
+            "email": "MasonJones@gmail.com"
+        },
+        {
+            "username": "OliviaLee",
+            "password": "securePass41",
+            "email": "OliviaLee@gmail.com"
+        },
+        {
+            "username": "JamesMartin",
+            "password": "securePass42",
+            "email": "JamesMartin@gmail.com"
+        },
+        {
+            "username": "AbigailMartinez",
+            "password": "securePass43",
+            "email": "AbigailMartinez@gmail.com"
+        },
+        {
+            "username": "WilliamMoore",
+            "password": "securePass44",
+            "email": "WilliamMoore@gmail.com"
+        },
+        {
+            "username": "EvelynPerez",
+            "password": "securePass45",
+            "email": "EvelynPerez@gmail.com"
+        },
+        {
+            "username": "HenryRodriguez",
+            "password": "securePass46",
+            "email": "HenryRodriguez@gmail.com"
+        },
+        {
+            "username": "HarperSanchez",
+            "password": "securePass47",
+            "email": "HarperSanchez@gmail.com"
+        },
+        {
+            "username": "AlexanderScott",
+            "password": "securePass48",
+            "email": "AlexanderScott@gmail.com"
+        },
+        {
+            "username": "EllaTaylor",
+            "password": "securePass49",
+            "email": "EllaTaylor@gmail.com"
+        },
+        {
+            "username": "SebastianThomas",
+            "password": "securePass50",
+            "email": "SebastianThomas@gmail.com"
+        }
+
+    ]
+
+

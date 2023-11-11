@@ -1,8 +1,9 @@
 import express from 'express';
-import { getMovies, deleteMovieById, updateMovieById, getMovieByName, createMovie, MovieModel } from '../models/moviesmiei';
+import { getMovies, deleteMovieById, updateMovieById, getMovieByName, MovieModel } from '../models/moviesmiei';
 import { Request, Response } from 'express';
 import UserModel from '../models/users.model';
 import { GenreModel } from '../models/genre.model';
+import mongoose from 'mongoose';
 
 
 
@@ -124,6 +125,10 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
         const { title, description, poster, genre, length, rating, votes, trailer, year } = req.body;
         const { userId } = req.params;
 
+        if (!userId) {
+            return res.status(400).json({ message: 'Missing UserID' });
+        }
+
         if (!title || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
@@ -134,15 +139,30 @@ export const getMovieByIdController = async (req: Request, res: Response) => {
             return res.status(409).json({ message: 'Movie already exists' });
         }
 
-        const newMovie = await MovieModel.create({ title, description, poster, genre, length, rating, trailer, year, votes });
+        const newMovie = await MovieModel.create({ 
+            title, 
+            description, 
+            poster, 
+            genre, 
+            length, 
+            rating, 
+            trailer, 
+            year, 
+            votes, 
+            creator: userId 
+        });
 
         await UserModel.findByIdAndUpdate(userId, {
             $push: { movies: newMovie._id }
         });
 
-        await GenreModel.findOneAndUpdate({ genre}, {
+        const genreDocument = await GenreModel.findOneAndUpdate({ genre }, {
             $push: { movies: newMovie._id }
-        });
+        }, { new: true });
+
+        if (!genreDocument) {
+            return res.status(404).json({ message: 'Genre not found' });
+        }
 
         return res.status(201).json(newMovie);
 

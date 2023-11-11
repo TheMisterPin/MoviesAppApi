@@ -25,10 +25,9 @@ export const getGenres= () => GenreModel.find()
 export const getGenreByName= (genre: string) => GenreModel.findOne({genre})
 export const getGenreById= (id: string) => GenreModel.findById({_id: id})
 export const createGenre = (values: Record<string, any>) => {
-  
     return new GenreModel(values).save()
-      .then(genre => genre.toObject());
-  }
+        .then(genre => genre.toObject());
+};
   
 export const deleteGenreById= (id: string) => GenreModel.findByIdAndDelete({_id: id})
 export const updateGenreById= (id: string, values: Record<string, any>) => GenreModel.findByIdAndUpdate({_id: id}, values)

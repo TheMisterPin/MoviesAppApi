@@ -18,6 +18,7 @@ interface MovieInterface extends Document  {
 
 
 const MovieSchema = new Schema<MovieInterface>({
+    
     title: { type: String, required: true, unique: true },
     description: { type: String, required: true, unique: false },
     poster: { type: String, required: true, unique: true },
@@ -27,9 +28,7 @@ const MovieSchema = new Schema<MovieInterface>({
     rating: { type: Number, required: true, unique: false },
     trailer: { type: String, required: true, unique: true },
     year: { type: Number, required: true, unique: false },
-    creator: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-
-
+    creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 
 }, {timestamps: true, versionKey: false})
 

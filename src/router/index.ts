@@ -7,9 +7,9 @@ import movies from './movies.router';
 
 const router = express.Router()
 export default (): express.Router => {
-    autenthication(router);
-    users(router);
-    genres(router);
+    autenthication(router)
+    users(router)
+    genres(router)
     movies(router)    
-    return router;
+    return router
 }
