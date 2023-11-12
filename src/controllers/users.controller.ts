@@ -21,7 +21,7 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
         return res.status(400).json({ error: error.message });
     }
 }
-
+//todo only send changed fields 
 export const updateUser = async (req: express.Request, res: express.Response) => {
     try {
         const { id } = req.params;
@@ -43,18 +43,61 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
 };
 
 
-export const getUsers = () => prisma.user.findMany();
-
-export const getUserByEmail = (email: string) => prisma.user.findUnique({ where: { email } });
 
 
-export const getUserById = (id: string) => prisma.user.findUnique({
-    where: { id },
-    include: { movies: true }
-});
-export const getUserByUsername = (username: string) => prisma.user.findUnique({
-    where: { username },
-    include: { movies: true }
-});
+export const getUserByEmail = async (req: express.Request, res: express.Response) => {
+    try {
+        const { email } = req.params;
+        if (!email) {
+            return res.status(400).json({ message: 'Missing email' });
+        }
+        const user = await prisma.user.findUnique({ where: { email } });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        return res.status(200).json(user);
+        
+    } catch (error) {
+        return res.status(500).json({ message: 'Something went wrong' });
+    
+        
+
+    }
+}
+
+
+export const getUserById = async (req: express.Request, res: express.Response) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).json({ message: 'Missing id' });
+        }
+        const user = await prisma.user.findUnique({ where: { id }, include:{movies:true}});
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(500).json({ message: 'Something went wrong' });
+    }
+
+}
+export const getUserByUsername = async (req: express.Request, res: express.Response) => {
+    try {
+        const { username } = req.params;
+        if (!username) {
+            return res.status(400).json({ message: 'Missing Username' });
+        }
+        const user = await prisma.user.findUnique({ where: { username }, include:{movies:true}});
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(500).json({ message: 'Something went wrong' });
+    }
+
+}
+
 
 

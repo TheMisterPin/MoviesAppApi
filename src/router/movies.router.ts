@@ -3,12 +3,11 @@ import { getAllMovies, uploadMovie, updateMovie, deleteMovie, getMovieById, getM
 
 
 export default (router : express.Router)=>{
-router.get('/', getAllMovies);
-router.get('/title/:title', getMovieByTitle);
-router.get('/:id', getMovieById);
-router.post('/upload', uploadMovie);
-router.patch('/:id', updateMovie);
-router.delete('/:id', deleteMovie);
+router.get('/movies', getAllMovies);
+router.get('/movie/:id', getMovieById);
+router.post('/upload/:id', uploadMovie);
+router.patch('/movie/:id', updateMovie);
+router.delete('/movie/:id', deleteMovie);
 router.get('/title/:title', getMovieByTitle);
 return router
 }

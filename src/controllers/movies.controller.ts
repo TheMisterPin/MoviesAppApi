@@ -55,8 +55,7 @@ export const uploadMovie = async (req: express.Request, res: express.Response) =
     }
 };
 
-export const 
-getAllMovies = async (req: express.Request, res: express.Response) => {
+export const getAllMovies = async (req: express.Request, res: express.Response) => {
     try {
         const movies = await prisma.movies.findMany();
         if (!movies) {
@@ -164,6 +163,7 @@ export const updateMovie = async (req: express.Request, res: express.Response) =
 export const updateMovieByTitle = async (req: express.Request, res: express.Response) => {
     try {
         const { title } = req.params;
+        const formattedTitle=  decodeURIComponent(title);
         if (!title) {
             return res.status(400).json({ message: 'Missing title' });
         }
@@ -171,7 +171,7 @@ export const updateMovieByTitle = async (req: express.Request, res: express.Resp
         if (!updateData.title) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
-        const updatedMovie = await prisma.movies.update({ where: { title }, data: updateData });
+        const updatedMovie = await prisma.movies.update({ where: { title: formattedTitle  }, data: updateData });
         return res.status(200).json(updatedMovie);
     } catch (error) {
         return res.status(400).json({ error: error.message });
