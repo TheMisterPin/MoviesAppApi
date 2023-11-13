@@ -22,3 +22,20 @@ server.listen(2323, () => {
 
 
 app.use('/', router()); 
+
+
+const { auth } = require('express-oauth2-jwt-bearer');
+
+
+const jwtCheck = auth({
+  audience: 'http://localhost:2323',
+  issuerBaseURL: 'https://dev-7esko0bv6fmmtrd5.us.auth0.com/',
+  tokenSigningAlg: 'RS256'
+});
+
+
+app.use(jwtCheck);
+
+app.get('/authorized', function (req, res) {
+    res.send('Secured Resource');
+});

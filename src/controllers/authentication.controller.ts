@@ -2,17 +2,15 @@ import express from 'express'
 import { getUserByEmail } from "./users.controller";
 import prisma from '../../db/client';
 
-
-
-
 export const login = async (req: express.Request, res: express.Response)=> {
     try {
         const { email, password } = req.body;
+        
         if (!email || !password) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
-        const user = await getUserByEmail(email);
+        const user = await getUserByEmail(email)
         if (!user) {
             return res.status(400).json({ message: 'User Not Found' });
         }

@@ -38,11 +38,11 @@ model Movies {
 }
 
 model User {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  username         String   @unique
-  email            String   @unique
-  movies           Movies []
-  password         String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String?   @unique
+  email     String   @unique
+  movies    Movies[]
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

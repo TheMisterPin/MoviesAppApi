@@ -1,6 +1,12 @@
 import express from 'express';
 import prisma from "../../db/client";
 
+export interface User {
+    email: string;
+    username: string;
+    password: string;
+}
+
 export const getAllUsers = async (req: express.Request, res: express.Response) => {
     try {
         const users = await prisma.user.findMany();
@@ -21,14 +27,14 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
         return res.status(400).json({ error: error.message });
     }
 }
-//todo only send changed fields 
+
 export const updateUser = async (req: express.Request, res: express.Response) => {
     try {
         const { id } = req.params;
-        const { username, email, password } = req.body;
+        const { username} = req.body;
 
-        if (!username || !email || !password) {
-            return res.status(400).json({ message: 'Missing required fields' });
+        if (!username  ) {
+            return res.status(400).json({ message: 'Missing userName! you had one field!' });
         }
 
         const updatedUser = await prisma.user.update({
@@ -45,26 +51,14 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
 
 
 
-export const getUserByEmail = async (req: express.Request, res: express.Response) => {
+export const getUserByEmail = async (email: string) => {
     try {
-        const { email } = req.params;
-        if (!email) {
-            return res.status(400).json({ message: 'Missing email' });
-        }
-        const user = await prisma.user.findUnique({ where: { email } });
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        return res.status(200).json(user);
-        
+        return await prisma.user.findUnique({ where: { email } });
     } catch (error) {
-        return res.status(500).json({ message: 'Something went wrong' });
-    
-        
-
+        console.error('Error in findUserByEmail:', error);
+        throw error;
     }
-}
-
+};
 
 export const getUserById = async (req: express.Request, res: express.Response) => {
     try {
