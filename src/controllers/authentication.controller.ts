@@ -2,6 +2,19 @@ import express from 'express'
 import { getUserByEmail } from "./users.controller";
 import prisma from '../../db/client';
 
+
+
+
+
+
+
+
+export const protectedRequest = async (req: express.Request, res: express.Response) => {
+    res.send({message: "Protected Request"})
+}
+
+
+
 export const login = async (req: express.Request, res: express.Response)=> {
     try {
         const { email, password } = req.body;
