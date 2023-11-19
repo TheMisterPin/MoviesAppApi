@@ -1,17 +1,19 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db {
+//   provider = "mongodb"
+//   url      = env("MONGO_URL")
+// }
+
 datasource db {
-  provider = "mongodb"
-  url      = env("MONGO_URL")
+  provider = "postgresql"
+  url      = "postgresql://pinmi:michele@localhost:5432/postgres"
 }
 
 model Genre {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        Int      @id @default(autoincrement())
   genre     String   @unique
   image     String
   createdAt DateTime @default(now())
@@ -19,30 +21,31 @@ model Genre {
   movies    Movies[]
 }
 
+model User {
+  id        Int      @id @default(autoincrement())
+  user_id   String?   @unique
+  email     String   @unique
+  username  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String
+  movies    Movies[]
+}
+
 model Movies {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          Int      @id @default(autoincrement())
+  genre       Genre    @relation(fields: [genreName], references: [genre])
+  creator     User     @relation(fields: [creatorId], references: [id])
   title       String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  genreName   String
+  creatorId   Int
   description String
   poster      String
-  genre       Genre    @relation(fields: [genreId], references: [id])
   length      Int
   votes       Int
   rating      Float
   trailer     String
   year        Int
-  creator     User     @relation(fields: [userId], references: [id])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  genreId     String   @db.ObjectId
-  userId      String   @db.ObjectId
-}
-
-model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  username  String?   @unique
-  email     String   @unique
-  movies    Movies[]
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }

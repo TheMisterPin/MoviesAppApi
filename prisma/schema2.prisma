@@ -1,0 +1,41 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://pinmi:michele@localhost:5432/postgres"
+}
+
+// model Genre {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   genre     String   @unique
+//   image     String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   movies    Movies[]
+// }
+
+// model Movies {
+//   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+//   genre       Genre    @relation(fields: [genreId], references: [id])
+//   creator     User     @relation(fields: [creatorId], references: [id])
+//   title       String   @unique
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+//   genreId     String   @db.ObjectId
+//   creatorId   String   @db.ObjectId
+//   description String
+//   poster      String
+//   length      Int
+//   votes       Int
+//   rating      Float
+//   trailer     String
+//   year        Int
+// }
+
+// model User {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   username  String?  @unique
+//   email     String   @unique
+//   userId    String   @unique
+//   movies    Movies[]
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }

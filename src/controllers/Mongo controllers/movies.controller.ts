@@ -1,4 +1,5 @@
 import express from 'express'
+import {  Response } from 'express'
 import prisma from '../../db/client'
 
 
@@ -6,20 +7,22 @@ export const uploadMovie = async (req: express.Request, res: express.Response) =
 	try {
 		const { title, description, poster, genre, length, rating, votes, trailer, year } = req.body
 		const { userId } = req.params
-		if (!userId) {
-			return res.status(400).json({ message: 'Id Not Found' })
-		}
-		if (!title || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes) {
+		if (!title || !description || !poster || !genre || length === undefined || rating === undefined || !trailer || !year || votes === undefined || !userId) {
 			return res.status(400).json({ message: 'Missing required fields' })
 		}
-
+		const userExists = await prisma.user.findUnique({ where: { id: parseInt(userId) } })
+		if (!userExists) {
+			return res.status(404).json({ message: 'User not found' })
+		}
 		const existingMovie = await prisma.movies.findUnique({ where: { title } })
 		if (existingMovie) {
 			return res.status(409).json({ message: 'Movie already exists' })
 		}
 
 		const genreRecord = await prisma.genre.findUnique({ where: { genre } })
-
+		if (!genreRecord) {
+			return res.status(404).json({ message: 'Genre not found' })
+		}
 
 		const newMovie = await prisma.movies.create({
 			data: {
@@ -31,18 +34,18 @@ export const uploadMovie = async (req: express.Request, res: express.Response) =
 				rating: parseFloat(rating),
 				trailer,
 				year: parseInt(year),
-				creator: { connect: { id: parseInt(userId) } },
-				genre: { connect: { genre: genre } }
+				creator: { connect: { id:  parseInt(userId) } },
+				genre: { connect: { id: genreRecord.id } }
 			}
 		})
-
+   
 		await prisma.user.update({
-			where: { id: parseInt(userId) },
-			data: { movies: { connect: { id: newMovie.id } } }
+			where: { id: parseInt(userId)  },
+			data: { Movies: { connect: { id: newMovie.id } } }
 		})
 
 		await prisma.genre.update({
-			where: { genre: genreRecord.genre },
+			where: { id: genreRecord.id },
 			data: { movies: { connect: { id: newMovie.id } } }
 		})
 
@@ -55,20 +58,10 @@ export const uploadMovie = async (req: express.Request, res: express.Response) =
 
 export const getAllMovies = async (req: express.Request, res: express.Response) => {
 	try {
-		const movies = await prisma.movies.findMany({
-			select: {
-				title: true,
-				genreName: true,
-				poster: true,
-				rating: true,
-				length: true,
-				year: true
-			}
-		})
+		const movies = await prisma.movies.findMany()
 		if (!movies) {
 			return res.status(404).json({ message: 'No movies found' })
 		}
-
 		return res.status(200).json(movies)
 	} catch (error) {
 		return res.status(400).json({ error: error.message })
@@ -81,26 +74,7 @@ export const getMovieByTitle = async (req: express.Request, res: express.Respons
 		if (!title) {
 			return res.status(400).json({ message: 'Title Not Found' })
 		}
-		const movie = await prisma.movies.findUnique({
-			where: { title }, select: {
-				title: true,
-				description: true,
-				length: true,
-				poster: true,
-				genreName: true,
-				rating: true,
-				votes: true,
-				trailer: true,
-				year: true,
-				creator: {
-					select: {
-						username:true
-					}},
-				createdAt: false,
-				updatedAt: false,
-				creatorId: false,
-			}
-		})
+		const movie = await prisma.movies.findUnique({ where: { title } })
 		if (!movie) {
 			return res.status(404).json({ message: 'Movie not found' })
 		}
@@ -115,26 +89,7 @@ export const getMovieById = async (req: express.Request, res: express.Response) 
 		if (!id) {
 			return res.status(400).json({ message: 'Id Not Found' })
 		}
-		const movie = await prisma.movies.findUnique({
-			where: { id: parseInt(id) }, select: {
-				title: true,
-				description: true,
-				length: true,
-				poster: true,
-				genreName: true,
-				rating: true,
-				votes: true,
-				trailer: true,
-				year: true,
-				creator: {
-					select: {
-						username: true
-					}
-				},
-				createdAt: false,
-				updatedAt: false,
-				creatorId: false,
-			}})
+		const movie = await prisma.movies.findUnique({ where: { id: parseInt(id)  } })
 		if (!movie) {
 			return res.status(404).json({ message: 'Movie not found' })
 		}
@@ -143,7 +98,7 @@ export const getMovieById = async (req: express.Request, res: express.Response) 
 		return res.status(500).json({ message: 'Internal server error', error: error.message })
 	}
 }
-export const getMovieByGenre = async (req: express.Request, res: express.Response) => {
+export const getMovieByGenre = async (req: express.Request, res: express.Response): Promise<Response> => {
 	try {
 		const genreParams = req.params.genre
 
@@ -156,7 +111,7 @@ export const getMovieByGenre = async (req: express.Request, res: express.Respons
 			return res.status(404).json({ message: 'Genre not found' })
 		}
 
-		const movies = await prisma.movies.findMany({ where: { genreName: genre.genre }, select: { id: true, title: true } })
+		const movies = await prisma.movies.findMany({ where: { genreId: genre.id } })
 		if (movies.length === 0) {
 			return res.status(404).json({ message: 'No movies found for this genre' })
 		}
@@ -201,7 +156,7 @@ export const updateMovie = async (req: express.Request, res: express.Response) =
 		if (!updateData.title) {
 			return res.status(400).json({ message: 'Missing required fields' })
 		}
-		const updatedMovie = await prisma.movies.update({ where: { id: parseInt(id) }, data: updateData })
+		const updatedMovie = await prisma.movies.update({ where: { id: parseInt(id)  }, data: updateData })
 		return res.status(200).json(updatedMovie)
 	} catch (error) {
 		return res.status(400).json({ error: error.message })
@@ -210,7 +165,7 @@ export const updateMovie = async (req: express.Request, res: express.Response) =
 export const updateMovieByTitle = async (req: express.Request, res: express.Response) => {
 	try {
 		const { title } = req.params
-		const formattedTitle = decodeURIComponent(title)
+		const formattedTitle=  decodeURIComponent(title)
 		if (!title) {
 			return res.status(400).json({ message: 'Missing title' })
 		}
@@ -218,7 +173,7 @@ export const updateMovieByTitle = async (req: express.Request, res: express.Resp
 		if (!updateData.title) {
 			return res.status(400).json({ message: 'Missing required fields' })
 		}
-		const updatedMovie = await prisma.movies.update({ where: { title: formattedTitle }, data: updateData })
+		const updatedMovie = await prisma.movies.update({ where: { title: formattedTitle  }, data: updateData })
 		return res.status(200).json(updatedMovie)
 	} catch (error) {
 		return res.status(400).json({ error: error.message })
@@ -227,55 +182,3 @@ export const updateMovieByTitle = async (req: express.Request, res: express.Resp
 
 
 
-export const uploadAuth0Movie = async (req: express.Request, res: express.Response) => {
-	try {
-		const { title, description, poster, genre, length, rating, votes, trailer, year, } = req.body
-		const { username } = req.params
-		console.log(username)
-		if (!username) {
-			
-			return res.status(400).json({ message: 'userName Not Found' })
-		}
-		if (!title || !description || !poster || !genre || !length || !rating || !trailer || !year || !votes) {
-			return res.status(400).json({ message: 'Missing required fields' })
-		}
-
-		const existingMovie = await prisma.movies.findUnique({ where: { title } })
-		if (existingMovie) {
-			return res.status(409).json({ message: 'Movie already exists' })
-		}
-
-		const genreRecord = await prisma.genre.findUnique({ where: { genre } })
-
-
-		const newMovie = await prisma.movies.create({
-			data: {
-				title,
-				description,
-				poster,
-				length: parseInt(length),
-				votes: parseInt(votes),
-				rating: parseFloat(rating),
-				trailer,
-				year: parseInt(year),
-				creator: { connect: { username: username } },
-				genre: { connect: { genre: genre } }
-			}
-		})
-
-		await prisma.user.update({
-			where: { username: username },
-			data: { movies: { connect: { id: newMovie.id } } }
-		})
-
-		await prisma.genre.update({
-			where: { genre: genreRecord.genre },
-			data: { movies: { connect: { id: newMovie.id } } }
-		})
-
-		return res.status(201).json(newMovie)
-
-	} catch (error) {
-		return res.status(500).json({ message: 'Internal server error', error: error.message })
-	}
-}

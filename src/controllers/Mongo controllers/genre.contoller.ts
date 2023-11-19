@@ -1,7 +1,7 @@
 import express from 'express'
-import prisma from '../../db/client'
+import prisma from '../../../db/client'
 
-export const getAllGenres = async (req: express.Request, res: express.Response)=> {
+export const getAllGenres = async (req: express.Request, res: express.Response) => {
 	try {
 		const genres = await prisma.genre.findMany()
 		return res.status(200).json(genres)
@@ -10,8 +10,8 @@ export const getAllGenres = async (req: express.Request, res: express.Response)=
 	}
 }
 
-export const deleteGenre = async (req: express.Request, res: express.Response)=> {
-    
+export const deleteGenre = async (req: express.Request, res: express.Response) => {
+
 	try {
 		const deletedGenre = await prisma.genre.delete({ where: { id: parseInt(req.params.id) } })
 		if (!deletedGenre) {
@@ -36,6 +36,10 @@ export const uploadGenre = async (req: express.Request, res: express.Response) =
 		}
 
 		const newGenre = await prisma.genre.create({ data: { genre, image } })
+
+
+
+
 		return res.status(201).json(newGenre)
 	} catch (error) {
 		return res.status(500).json({ message: 'Internal server error', error: error.message })
@@ -46,7 +50,7 @@ export const updateGenreByName = async (req: express.Request, res: express.Respo
 	try {
 		const { genre: genreParam } = req.params
 		const updateData = req.body
-        
+
 		if (!genreParam) {
 			return res.status(400).json({ message: 'Missing required genre parameter' })
 		}
