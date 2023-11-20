@@ -57,6 +57,7 @@ export const getAllMovies = async (req: express.Request, res: express.Response) 
 	try {
 		const movies = await prisma.movies.findMany({
 			select: {
+				id: true,
 				title: true,
 				genreName: true,
 				poster: true,
@@ -83,6 +84,7 @@ export const getMovieByTitle = async (req: express.Request, res: express.Respons
 		}
 		const movie = await prisma.movies.findUnique({
 			where: { title }, select: {
+				
 				title: true,
 				description: true,
 				length: true,

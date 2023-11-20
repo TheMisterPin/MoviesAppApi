@@ -8,10 +8,10 @@ import { generateUsername } from '../helpers/generateUsername'
 
 export const createUser = async (req: express.Request, res: express.Response) => {
 	try {
-		const { email, password } = req.body
+		const { email} = req.body
 
 
-		if (!email || !password) {
+		if (!email) {
 			return res.status(400).json({ message: 'Missing required fields' })
 		}
 		const userExists = await prisma.user.findUnique({ where: { email: email } })
@@ -19,7 +19,7 @@ export const createUser = async (req: express.Request, res: express.Response) =>
 			return res.status(409).json({ message: 'Email already in use' })
 		}
 		const username = generateUsername()
-		const newUser = await prisma.user.create({ data: { username, email, password } })
+		const newUser = await prisma.user.create({ data: { username, email } })
 		return res.status(201).json(newUser)
 	} catch (error) {
 		return res.status(500).json({ message: 'Internal server error', error: error.message })
@@ -28,10 +28,10 @@ export const createUser = async (req: express.Request, res: express.Response) =>
 
 
 
-export const login = async (req: express.Request, res: express.Response) => {
+export const loginAuth0 = async (req: express.Request, res: express.Response) => {
 	try {
-		const { email, password } = req.body
-		if (!email || !password) {
+		const { email } = req.body
+		if (!email) {
 			return res.status(400).json({ message: 'Missing required fields' })
 		}
 		const user = await prisma.user.findUnique({ where: { email: email } })
@@ -39,9 +39,7 @@ export const login = async (req: express.Request, res: express.Response) => {
 			return res.status(404).json({ message: 'User not found' })
 		}
 
-		if (password !== user.password) {
-			return res.status(401).json({ message: 'Invalid password' })
-		}
+		
 
 		return res.status(200).json({ message: 'Logged in!' })
 	} catch (error) {
