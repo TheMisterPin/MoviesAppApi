@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("MONGO_URL")
+  provider = "postgresql"
+  url      = env("POSRGERS_URL")
 }
 
 model Genre {
