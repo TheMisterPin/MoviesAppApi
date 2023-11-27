@@ -2,6 +2,9 @@ import express from 'express'
 const namespace = 'https://Moviehub.dev/'
 import { Movies } from '@prisma/client'
 
+//for auth0 token details extraction, does not work, ideas? 
+
+
 declare module 'express-serve-static-core' {
     interface Request {
 		email?: string;
@@ -13,7 +16,6 @@ declare module 'express-serve-static-core' {
 		};
 		user?:  [key: string];
         customClaims?: {
-
             moviesUploaded: Movies[];
             watchList: Movies[];
             username: string;

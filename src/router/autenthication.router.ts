@@ -1,6 +1,13 @@
-import { tokenCheckerMiddleware } from "../middlewares/tokenCheckerMiddleware";
-import { login, logout, protectedRequest, register } from "../controllers/authentication.controller";
-import express from 'express';
+// import { extractIdMiddleware } from "../middlewares/tokenCheckerMiddleware";
+
+
+
+import { createUser, loginAuth0 } from '../controllers/authentication.controller'
+import express from 'express'
+
+
+
+
 
 export default (router: express.Router) => {
 	router.post('/create', createUser)

@@ -11,8 +11,9 @@ export const getAllGenres = async (req: express.Request, res: express.Response)=
 };
 
 export const deleteGenre = async (req: express.Request, res: express.Response)=> {
+    
     try {
-        const deletedGenre = await prisma.genre.delete({ where: { id: req.params.id } });
+        const deletedGenre = await prisma.genre.delete({ where: { id: parseInt(req.params.id) } });
         if (!deletedGenre) {
             return res.status(404).json({ message: 'Genre not found' });
         }

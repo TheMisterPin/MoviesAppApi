@@ -1,0 +1,142 @@
+Request tokens
+To call your API, you must first get the user's credentials, typically through an interactive form. Once your application has the credentials, you must exchange them for tokens. To do so, you must POST to the token URL.
+
+Example POST to token URL
+cURL C# Go Java Node.JS Obj-C ...
+to configure this snippet with your account
+var axios = require("axios").default;
+
+var options = {
+  method: 'POST',
+  url: 'https://{yourDomain}/oauth/token',
+  headers: {'content-type': 'application/x-www-form-urlencoded'},
+  data: new URLSearchParams({
+    grant_type: 'password',
+    username: '{username}',
+    password: '{password}',
+    audience: '{yourApiIdentifier}',
+    scope: 'read:sample',
+    client_id: '{yourClientId}',
+    client_secret: '{yourClientSecret}'
+  })
+};
+
+axios.request(options).then(function (response) {
+  console.log(response.data);
+}).catch(function (error) {
+  console.error(error);
+});
+Was this helpful?
+
+/
+Parameters
+Parameter Name	Description
+grant_type	Set this to password.
+username	The username entered by the user.
+password	The password entered by the user.
+client_id	Your application's Client ID. You can find this value in your Application Settings.
+client_assertion	A JWT containing a signed assertion with your application credentials. Required when Private Key JWT is your application authentication method.
+client_assertion_type	The value is urn:ietf:params:oauth:client-assertion-type:jwt-bearer. Required when Private Key JWT is the application authentication method.
+client_secret	Your application's Client Secret. Required when Client Secret is the application authentication method. Application Settings is Post or Basic. If your application is not highly trusted (for example, a SPA), then do not set this parameter.
+audience	The audience for the token, which is your API. You can find this in the Identifier field on your API's settings tab.
+scope	Specifies the scopes for which you want to request authorization, which dictate which claims (or user attributes) you want returned. These must be separated by a space. You can request any of the standard OpenID Connect (OIDC) scopes about users, such as profile or email, custom claims conforming to a namespaced format, or any scopes supported by the target API (e.g., read:contacts). Include offline_access to get a Refresh Token (make sure that the Allow Offline Access field is enabled in the Application Settings).
+Response
+If all goes well, you'll receive an HTTP 200 response with a payload containing access_token, refresh_token, id_token, token_type, and expires_in values:
+
+{
+  "access_token": "eyJz93a...k4laUWw",
+  "refresh_token": "GEbRxBN...edjnXbL",
+  "id_token": "eyJ0XAi...4faeEoQ",
+  "token_type": "Bearer",
+  "expires_in": 36000
+}
+Was this helpful?
+
+/
+Validate your tokens before saving them. To learn how, read Validate ID Tokens and Validate Access Tokens.
+
+Refresh tokens must be stored securely since they allow a user to remain authenticated essentially forever.
+
+Resource Owner Password flow and standard scopes
+Because providing a password gives full access, any password-based exchange gives access to all scopes. For example, if you include no API scopes in the request, all API scopes will be included in the Access Token. Similarly, if you include only the openid scope in the request, all openid standard OpenID Connect scopes will be returned. In these cases, the scope parameter will be included in the response and will list the issued scopes.
+
+Get user information without an ID Token
+If you need the user's information, include the openid scope in your request. If the API uses RS256 as the signing algorithm, the Access Token will include /userinfo as a valid audience, which means you can use it to invoke the /userinfo endpoint and retrieve the user's claims.
+
+Call API
+To call your API, the application must pass the retrieved Access Token as a Bearer token in the Authorization header of your HTTP request.
+
+cURL C# Go Java Node.JS Obj-C ...
+var axios = require("axios").default;
+
+var options = {
+  method: 'GET',
+  url: 'https://myapi.com/api',
+  headers: {'content-type': 'application/json', authorization: 'Bearer {accessToken}'}
+};
+
+axios.request(options).then(function (response) {
+  console.log(response.data);
+}).catch(function (error) {
+  console.error(error);
+});
+Was this helpful?
+
+/
+Refresh tokens
+You have already received a refresh token if you've been following this tutorial and completed the following:
+
+configured your API to allow offline access
+
+included the offline_access scope when you initiated the authentication request through the authorize endpoint.
+
+You can use the Refresh Token to get a new access token. Usually, a user will need a new access token only after the previous one expires or when gaining access to a new resource for the first time. It's bad practice to call the endpoint to get a new access token every time you call an API, and Auth0 maintains rate limits that will throttle the amount of requests to the endpoint that can be executed using the same token from the same IP.
+
+To refresh your token, make a POST request to the /oauth/token endpoint in the Authentication API, using grant_type=refresh_token.
+
+Example POST to token URL
+cURL C# Go Java Node.JS Obj-C ...
+to configure this snippet with your account
+HttpResponse<String> response = Unirest.post("https://{yourDomain}/oauth/token")
+  .header("content-type", "application/x-www-form-urlencoded")
+  .body("grant_type=refresh_token&client_id={yourClientId}&refresh_token=%7ByourRefreshToken%7D")
+  .asString();
+Was this helpful?
+
+/
+Parameters
+Parameter Name	Description
+grant_type	Set this to refresh_token.
+client_id	Your application's Client ID. You can find this value in your Application Settings.
+refresh_token	The refresh token to use.
+scope	(optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. Note that this must be URL encoded.
+Response
+If all goes well, you'll receive an HTTP 200 response with a payload containing a new access_token, its lifetime in seconds (expires_in), granted scope values, and token_type.
+
+{
+  "access_token": "eyJ...MoQ",
+  "expires_in": 86400,
+  "scope": "openid offline_access",
+  "token_type": "Bearer"
+}
+Was this helpful?
+
+/
+Validate your tokens before saving them. To learn how, read Validate ID Tokens and Validate Access Tokens.
+
+Sample use cases
+Customize tokens
+You can use rules to change the returned scopes of Access Tokens and/or add claims to Access and ID Tokens. (To learn more about rules, read Auth0 Rules.) To do so, add the following rule, which will run after the user authenticates:
+
+function(user, context, callback) {
+  // add custom claims to Access Token and ID Token
+  context.accessToken['http://foo/bar'] = 'value';
+  context.idToken['http://fiz/baz'] = 'some other value';
+  // change scope
+  context.accessToken.scope = ['array', 'of', 'strings'];
+  callback(null, user, context);
+}
+Was this helpful?
+
+/
+Scopes will be available in the token after all rules have run.

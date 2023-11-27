@@ -1,0 +1,735 @@
+[
+  {
+    "title": "Blade Runner",
+    "description": "In a dystopian future, Blade Runner Rick Deckard is tasked with hunting down and 'retiring' rogue replicants—bioengineered humanoids. As he delves deeper into the investigation, he questions the nature of humanity and artificial intelligence.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 117,
+    "rating": 2.1,
+    "votes": 19,
+    "trailer": "",
+    "year": 1982
+  },
+  {
+    "title": "2001: A Space Odyssey",
+    "description": "Directed by Stanley Kubrick, this cinematic masterpiece explores human evolution, artificial intelligence, and extraterrestrial life through a visually stunning and enigmatic narrative.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 149,
+    "rating": 3.2,
+    "votes": 16,
+    "trailer": "",
+    "year": 1968
+  },
+  {
+    "title": "Interstellar",
+    "description": "In a future Earth facing environmental collapse, a group of astronauts embarks on a perilous journey through a wormhole to find a new habitable planet for humanity. This epic sci-fi film combines mind-bending science with emotional depth.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 169,
+    "rating": 4.8,
+    "votes": 23,
+    "trailer": "",
+    "year": 2014
+  },
+  {
+    "title": "The Martian",
+    "description": "After being stranded on Mars, astronaut Mark Watney must use his ingenuity and resourcefulness to survive while NASA and his crewmates work tirelessly to bring him home. It's a tale of human determination and the spirit of exploration.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 144,
+    "rating": 1.3,
+    "votes": 19,
+    "trailer": "",
+    "year": 2015
+  },
+  {
+    "title": "Star Wars: Episode IV - A New Hope",
+    "description": "This iconic space opera introduces us to Luke Skywalker, Princess Leia, and Han Solo as they join forces to battle the evil Galactic Empire and its Sith Lord, Darth Vader.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 121,
+    "rating": 1.8,
+    "votes": 21,
+    "trailer": "",
+    "year": 1977
+  },
+  {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "description": "Joel and Clementine undergo a procedure to erase memories of each other after a breakup. As their memories are erased, the film delves into the complexities of love and memory in a unique and emotional way.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 108,
+    "rating": 4.4,
+    "votes": 18,
+    "trailer": "",
+    "year": 2004
+  },
+  {
+    "title": "The Fifth Element",
+    "description": "Set in a colorful and chaotic future, cab driver Korben Dallas becomes embroiled in a quest to save the Earth from destruction with the help of a mysterious woman known as Leeloo.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 126,
+    "rating": 3.0,
+    "votes": 20,
+    "trailer": "",
+    "year": 1997
+  },
+  {
+    "title": "Ex Machina",
+    "description": "A young programmer is invited to administer the Turing test to an intelligent humanoid robot. As he interacts with the robot, he becomes entangled in a web of deception and questions the nature of consciousness and artificial intelligence.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 108,
+    "rating": 2.0,
+    "votes": 15,
+    "trailer": "",
+    "year": 2014
+  },
+  {
+    "title": "Star Trek: First Contact",
+    "description": "In this Star Trek film, the crew of the starship USS Enterprise-E embarks on a mission to prevent the Borg, a cybernetic species, from altering history by preventing humanity's first contact with an alien race, the Vulcans. Captain Jean-Luc Picard and his crew must engage in a thrilling battle against the Borg while preserving the timeline and the future of the Federation.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 111,
+    "rating": 4.8,
+    "votes": 21,
+    "trailer": "",
+    "year": 1996
+  },
+  {
+    "title": "Contact",
+    "description": "Dr. Ellie Arroway, a brilliant scientist played by Jodie Foster, discovers an extraterrestrial signal containing complex instructions for building a mysterious device. As humanity races to decode the message and construct the machine, it raises profound questions about faith, science, and the possibility of contact with an alien civilization.",
+    "poster": "",
+    "genre": "Sci-Fi",
+    "length": 150,
+    "rating": 2.3,
+    "votes": 20,
+    "trailer": "",
+    "year": 1997
+  },
+    {
+   
+      "title": "The Bourne Identity",
+      "description": "A man suffering from amnesia is discovered adrift in the ocean with no memory of his past. As he unravels the mystery of his identity, he realizes he possesses deadly combat skills and a connection to a covert government program. He must outwit assassins and uncover his past while staying one step ahead of those who want him eliminated.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/aP8swke3gmowbkfZ6lmNidu0y9p.jpg",
+      "genre": "Action",
+      "length": 119,
+      "votes": 20,
+      "rating": 4.7,
+      "trailer": "https://www.youtube.com/watch?v=FpKaB5dvQ4g",
+      "year": 2002
+    }
+    {
+  
+      "title": "Mad Max: Fury Road",
+      "description": "In a post-apocalyptic wasteland, Max, a drifter haunted by his past, teams up with Imperator Furiosa, a fierce warrior, to escape the clutches of Immortan Joe, a tyrannical warlord. Together, they embark on a high-octane, death-defying chase across the desert in a massive armored truck, leading to a thrilling battle for freedom and survival.",
+      "poster": "https://www.themoviedb.org/t/p/original/c6N4YcG5j9WKgIxY8nOhMLqluej.jpg",
+      "genre": "Action",
+      "length": 120,
+      "votes": 20,
+      "rating": 4.7,
+      "trailer": "https://www.youtube.com/watch?v=hEJnMQG9ev8",
+      "year": 2015
+    }
+    {
+      "title": "Die Hard",
+      "description": "NYPD officer John McClane arrives at a Christmas party in a Los Angeles skyscraper, only to find himself in a deadly game of cat and mouse with a group of highly organized terrorists. McClane must use his resourcefulness and wit to outsmart the criminals and save the hostages, including his wife, in this iconic action-packed thriller.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/yFihWxQcmqcaBR31QM6Y8gT6aYV.jpg",
+      "genre": "Action",
+      "length": 131,
+      "votes": 23,
+      "rating": 4.8,
+      "trailer": "https://www.youtube.com/watch?v=jaJuwKCmJbY",
+      "year": 1988
+    }
+    {
+    
+      "title": "The Dark Knight",
+      "description": "Batman, aided by his ally Commissioner Gordon, faces off against the Joker, a deranged criminal mastermind. The Joker's anarchic plans push Batman to his limits, challenging his principles and the very essence of heroism in this dark and intense battle for Gotham City's soul.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "genre": "Action",
+      "length": 152,
+      "votes": 20,
+      "rating": 5,
+      "trailer": "https://www.youtube.com/watch?v=EXeTwQWrcwY",
+      "year": 2008
+    }
+    {
+
+      "title": "John Wick",
+      "description": "A retired hitman, John Wick, seeks vengeance against the ruthless Russian mobsters who wronged him. With a relentless pursuit and a legendary set of skills, Wick unleashes a torrent of violence in a quest for justice that takes him deep into the underworld of assassins.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
+      "genre": "Action",
+      "length": 101,
+      "votes": 19,
+      "rating": 4.4,
+      "trailer": "https://www.youtube.com/watch?v=C0BMx-qxsP4",
+      "year": 2014
+    }
+    {
+  
+      "title": "Gladiator",
+      "description": "Maximus, a betrayed Roman general, seeks revenge against the corrupt Emperor Commodus, who murdered his family and sent him into slavery. Maximus rises as a gladiator, seeking to challenge the empire's tyranny in the deadly arena while leading a revolt against the oppressive regime.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+      "genre": "Action",
+      "length": 155,
+      "votes": 17,
+      "rating": 4.8,
+      "trailer": "https://www.youtube.com/watch?v=P5ieIbInFpg",
+      "year": 2000
+    }
+    {
+ 
+      "title": "Inception",
+      "description": "Dom Cobb is a skilled thief, but his unique expertise lies in entering the dreams of others to steal their secrets. He is hired for one last job, but this time it's to plant an idea rather than steal it. Cobb and his team embark on a mind-bending journey through multiple layers of reality, where the line between dreams and reality blurs.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
+      "genre": "Action",
+      "length": 148,
+      "votes": 20,
+      "rating": 4.9,
+      "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+      "year": 2010
+    }
+    {
+ 
+      "title": "The Matrix",
+      "description": "Neo, a computer hacker, discovers that humanity is enslaved by machines in a simulated reality known as the Matrix. Joined by a group of rebels, including Morpheus and Trinity, Neo must embrace his destiny as 'The One' and lead the fight against the machines in a mind-bending battle for freedom.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+      "genre": "Action",
+      "length": 136,
+      "votes": 20,
+      "rating": 4.7,
+      "trailer": "https://www.youtube.com/watch?v=vKQi3bBA1y8",
+      "year": 1999
+    }
+    {
+      "title": "Kill Bill: Vol. 1",
+      "description": "The Bride, a former assassin, awakens from a coma determined to exact revenge on her former colleagues, the Deadly Viper Assassination Squad, who betrayed her and left her for dead. Armed with deadly skills and a list of targets, she embarks on a blood-soaked journey of vengeance.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
+      "genre": "Action",
+      "length": 111,
+      "votes": 16,
+      "rating": 4.1,
+      "trailer": "https://www.youtube.com/watch?v=7kSuas6mRpk",
+      "year": 2003
+    }
+    {
+
+      "title": "Kill Bill: Vol. 2",
+      "description": "The Bride continues her quest for vengeance against her former boss and lover Bill, the reclusive bouncer Budd, and the treacherous, one-eyed Elle.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/2yhg0mZQMhDyvUQ4rG1IZ4oIA8L.jpg",
+      "genre": "Action",
+      "length": 136,
+      "votes": 15,
+      "rating": 4.3,
+      "trailer": "https://www.youtube.com/watch?v=WTt8cCIvGYI",
+      "year": 2004
+    }
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "description": "In the first installment of J.R.R. Tolkien's epic saga, Frodo Baggins sets out on a perilous journey to destroy a powerful ring that could plunge Middle-earth into darkness. He's joined by a diverse group of companions as they face creatures, magic, and dark forces.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
+      "genre": "Fantasy",
+      "length": 178,
+      "votes": 22,
+      "rating": 4.8,
+      "trailer": "https://www.youtube.com/watch?v=V75dMMIW2B4",
+      "year": 2001
+    }
+    {
+  
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "description": "Harry Potter discovers his true identity as a young wizard and begins his education at Hogwarts School of Witchcraft and Wizardry. Alongside his friends, he embarks on magical adventures and unravels the mystery surrounding his parents' deaths.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
+      "genre": "Fantasy",
+      "length": 152,
+      "votes": 20,
+      "rating": 4.3,
+      "trailer": "https://www.youtube.com/watch?v=VyHV0BRtdxo",
+      "year": 2001
+    }
+    {
+   
+      "title": "Pan's Labyrinth",
+      "description": "Set in post-Civil War Spain, a young girl named Ofelia escapes into a mythical labyrinth, where she encounters magical creatures and faces dark challenges. This dark fairy tale weaves together fantasy and reality in a haunting and visually stunning narrative.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/7PurMm0gUOJZ8Uk0oyuZlt1CKfJ.jpg",
+      "genre": "Fantasy",
+      "length": 118,
+      "votes": 24,
+      "rating": 4.6,
+      "trailer": "https://www.youtube.com/watch?v=jVZRnnVSQ8k",
+      "year": 2006
+    }
+    {
+      "title": "Spirited Away",
+      "description": "Directed by Hayao Miyazaki, this animated masterpiece tells the story of Chihiro, a young girl who becomes trapped in a mystical and mysterious world. To rescue her parents and return home, she must navigate a realm inhabited by spirits, gods, and fantastical creatures.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/iREd0rNCjYdf5Ar0vfaW32yrkm.jpg",
+      "genre": "Fantasy",
+      "length": 125,
+      "votes": 25,
+      "rating": 4.9,
+      "trailer": "https://www.youtube.com/watch?v=usEkWtuNn-w",
+      "year": 2001
+    }
+    {
+     
+      "title": "Stardust",
+      "description": "A young man named Tristan ventures into a magical realm to retrieve a fallen star for his beloved. Along the way, he encounters witches, pirates, and other fantastical beings in this enchanting adventure.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/7zbFmxy3DqKYL2M8Hop6uylp2Uy.jpg",
+      "genre": "Fantasy",
+      "length": 127,
+      "votes": 21,
+      "rating": 4,
+      "trailer": "https://www.youtube.com/watch?v=-wwv427DAvA",
+      "year": 2007
+ 
+    }
+     {
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "description": "Four siblings stumble upon the magical land of Narnia through a wardrobe. There, they join the noble lion Aslan in a battle against the White Witch, who has plunged the realm into eternal winter.",
+      "poster": "poster",
+      "genre": "Fantasy",
+      "length": 143,
+      "rating": 4.1,
+      "votes": 18,
+      "trailer": "trailer",
+      "year": 2005
+    }
+  
+    {
+  
+      "title": "The Princess Bride",
+      "description": "This beloved fairy tale adventure follows the quest to rescue Princess Buttercup, a young woman betrothed to an evil prince. Filled with humor, romance, and memorable characters, it's a timeless classic.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/dvjqlp2sAhUeFjUOfQDgqwpphHj.jpg",
+      "genre": "Fantasy",
+      "length": 98,
+      "votes": 23,
+      "rating": 4.7,
+      "trailer": "the princess bride trailer",
+      "year": 1987
+    }
+    {
+     
+      "title": "The Dark Crystal",
+      "description": "In a mystical world, a young Gelfling named Jen embarks on a quest to heal the Dark Crystal and restore balance to his fractured world. This fantasy film, created by Jim Henson, features remarkable puppetry and a unique, immersive world.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/6g1Kh73qQRosyhRJpL3euQpMxOE.jpg",
+      "genre": "Fantasy",
+      "length": 93,
+      "votes": 17,
+      "rating": 4.2,
+      "trailer": "https://www.youtube.com/watch?v=eaH6cOR8NKc",
+      "year": 1982
+    }
+    {
+     
+      "title": "The Dark Crystal",
+      "description": "In a mystical world, a young Gelfling named Jen embarks on a quest to heal the Dark Crystal and restore balance to his fractured world. This fantasy film, created by Jim Henson, features remarkable puppetry and a unique, immersive world.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/6g1Kh73qQRosyhRJpL3euQpMxOE.jpg",
+      "genre": "Fantasy",
+      "length": 93,
+      "votes": 17,
+      "rating": 4.2,
+      "trailer": "https://www.youtube.com/watch?v=eaH6cOR8NKc",
+      "year": 1982
+    }
+    {
+      
+      "title": "The Wizard of Oz",
+      "description": "Follow Dorothy Gale as she is transported to the magical land of Oz, where she embarks on a journey to the Emerald City to meet the Wizard and find her way back home. Along the way, she befriends memorable characters like the Scarecrow, the Tin Man, and the Cowardly Lion.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/pfAZFD7I2hxW9HCChTuAzsdE6UX.jpg",
+      "genre": "Fantasy",
+      "length": 102,
+      "votes": 22,
+      "rating": 4.5,
+      "trailer": "https://www.youtube.com/watch?v=njdreZRjvpc",
+      "year": 1939
+      
+    }
+    {
+    
+      "title": "It Follows",
+      "description": "After a sexual encounter, a young woman finds herself pursued by a relentless supernatural entity that can take on different forms. She and her friends must find a way to escape the curse before it's too late.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/iwnQ1JH1wdWrGYkgWySptJ5284A.jpg",
+      "genre": "Horror",
+      "length": 100,
+      "votes": 21,
+      "rating": 3.9,
+      "trailer": "https://www.youtube.com/watch?v=HkZYbOH0ujw",
+      "year": 2014
+
+    }
+    {
+     
+      "title": "The Witch",
+      "description": "Set in 1630s New England, a Puritan family encounters supernatural forces in the woods beyond their farm, leading to paranoia, religious hysteria, and a descent into madness. This film offers a chilling and atmospheric experience.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/4i2wo2ja5g2PmUxWa1a2eYIboZf.jpg",
+      "genre": "Horror",
+      "length": 92,
+      "votes": 24,
+      "rating": 4.2,
+      "trailer": "https://www.youtube.com/watch?v=iQXmlf3Sefg",
+      "year": 2015
+   
+    }
+    {
+      "title": "The Babadook",
+      "description": "A single mother and her young son are haunted by a sinister presence that emerges from a mysterious children's book. As their lives unravel, they must confront their deepest fears to survive.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/lszpCmmPCKHvzn2OBx7bAgXlfhC.jpg",
+      "genre": "Horror",
+      "length": 93,
+      "votes": 22,
+      "rating": 4,
+      "trailer": "https://www.youtube.com/watch?v=k5WQZzDRVtw",
+      "year": 2014
+    }
+
+
+
+
+
+
+
+
+    
+    {
+    
+      "title": "Psycho",
+      "description": "Marion Crane embezzles money and checks into the Bates Motel, where she encounters the reclusive owner, Norman Bates. Directed by Alfred Hitchcock, this classic thriller explores themes of identity and madness in a suspenseful and shocking narrative.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/yz4QVqPx3h1hD1DfqqQkCq3rmxW.jpg",
+      "genre": "Horror",
+      "length": 109,
+      "votes": 31,
+      "rating": 4.7,
+      "trailer": "https://www.youtube.com/watch?v=NG3-GlvKPcg",
+      "year": 1960
+    },
+    {
+     
+      "title": "The Conjuring",
+      "description": "Based on real-life paranormal investigators Ed and Lorraine Warren, this film follows them as they help a family terrorized by malevolent spirits in their farmhouse. The film combines supernatural scares with a compelling storyline.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/wVYREutTvI2tmxr6ujrHT704wGF.jpg",
+      "genre": "Horror",
+      "length": 112,
+      "votes": 26,
+      "rating": 4.5,
+      "trailer": "https://www.youtube.com/watch?v=k10ETZ41q5o&pp=ygUVdGhlIGNvbmp1cmluZyB0cmFpbGVy",
+      "year": 2013
+    
+    },
+    {
+     
+      "title": "A Quiet Place",
+      "description": "In a world terrorized by mysterious creatures that hunt by sound, a family must live in silence to survive. This suspenseful thriller emphasizes the power of silence and family bonds in the face of deadly threats.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/nAU74GmpUk7t5iklEp3bufwDq4n.jpg",
+      "genre": "Horror",
+      "length": 90,
+      "votes": 23,
+      "rating": 4.1,
+      "trailer": "https://www.youtube.com/watch?v=WR7cc5t7tv8",
+      "year": 2018
+ 
+    },
+    {
+    
+      "title": "Get Out",
+      "description": "A young African American man visits his white girlfriend's family estate, where he uncovers disturbing secrets about the residents and their intentions. This thought-provoking horror film explores themes of racism and social commentary.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/tFXcEccSQMf3lfhfXKSU9iRBpa3.jpg",
+      "genre": "Horror",
+      "length": 104,
+      "votes": 27,
+      "rating": 4.4,
+      "trailer": "https://www.youtube.com/watch?v=DzfpyUB60YY",
+      "year": 2017
+  
+    },
+    {
+    
+      "title": "Hereditary",
+      "description": "After the death of her secretive grandmother, Annie Graham and her family begin to unravel cryptic and terrifying secrets about their ancestry. Supernatural occurrences and family trauma collide in a disturbing and atmospheric horror film.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/p9fmuz2Oj3HtEJEqbIwkFGUhVXD.jpg",
+      "genre": "Horror",
+      "length": 127,
+      "votes": 25,
+      "rating": 3.3,
+      "trailer": "https://www.youtube.com/watch?v=V6wWKNij_1M&t=1s",
+      "year": 2018
+   
+    },
+    {
+
+      "title": "The Exorcist",
+      "description": "When a young girl named Regan displays disturbing behavior, her mother seeks the help of two priests to perform an exorcism. As they confront the demonic presence within Regan, they face their own inner demons and a battle against evil.",
+      "poster": "The Exorcist",
+      "genre": "Horror",
+      "length": 122,
+      "votes": 30,
+      "rating": 4.6,
+      "trailer": "https://www.youtube.com/watch?v=YDGw1MTEe9k",
+      "year": 1973
+    
+    },
+    {
+     
+      "title": "The Shining",
+      "description": "Jack Torrance, a struggling writer, takes a job as the winter caretaker of the remote Overlook Hotel with his family. As they become isolated in the eerie, snowbound hotel, supernatural forces and the hotel's dark history gradually drive Jack into madness.",
+      "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/upBsuweJjBftrkJGqVf8PHCdH0l.jpg",
+      "genre": "Horror",
+      "length": 146,
+      "votes": 28,
+      "rating": 4.5,
+      "trailer": "https://www.youtube.com/watch?v=5Cb3ik6zP2I",
+      "year": 1980
+ 
+    },
+
+
+
+
+
+
+    {
+     
+      "title": "Silver Linings Playbook",
+      "description": "Pat, a man with bipolar disorder, and Tiffany, a young widow, form an unlikely bond as they both struggle with personal challenges. Through their quirky and genuine connection, they discover hope, healing, and the potential for a second chance at love.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/y7iOVneBvITlBdhy6tVqXVOa1Js.jpg",
+      "genre": "Romance",
+      "length": 122,
+      "votes": 20,
+      "rating": 4.3,
+      "trailer": "https://www.youtube.com/watch?v=kVS-6k2tQAA",
+      "year": 2012
+    },
+    {
+    
+      "title": "Romeo + Juliet",
+      "description": "Baz Luhrmann's modern adaptation of Shakespeare's classic tragedy follows the passionate love affair between Romeo and Juliet, two young members of feuding families in Verona Beach. Their love defies the odds and leads to a tragic and unforgettable conclusion.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/a0FsFzxmY61NKnCOutrNuQaq1ik.jpg",
+      "genre": "Romance",
+      "length": 120,
+      "votes": 0,
+      "rating": 0,
+      "trailer": "https://www.youtube.com/watch?v=4VBsi0VxiLg",
+      "year": 1996
+    
+    },
+
+
+    {
+      "title": "Schindler's List",
+      "description": "Based on a true story, this powerful drama follows Oskar Schindler, a German businessman who saves the lives of over a thousand Polish-Jewish refugees during the Holocaust by employing them in his factory.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+      "genre": "Drama",
+      "length": 195,
+      "rating": 3.6,
+      "votes": 23,
+      "trailer": "https://www.youtube.com/watch?v=gG22XNhtnoY",
+      "year": 1993
+    },
+    {
+      "title": "Forrest Gump",
+      "description": "Through the life of Forrest Gump, a kind-hearted and intellectually challenged man, this drama explores the tumultuous events of the 20th century in the United States, from the Vietnam War to the rise of popular culture.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg",
+      "genre": "Drama",
+      "length": 142,
+      "rating": 4.2,
+      "votes": 19,
+      "trailer": "https://www.youtube.com/watch?v=bLvqoHBptjg",
+      "year": 1994
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "description": "Andy Dufresne, a banker wrongfully convicted of murder, forms a unique bond with fellow inmate Red as they navigate life in Shawshank State Penitentiary and work towards redemption.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
+      "genre": "Drama",
+      "length": 142,
+      "rating": 4.9,
+      "votes": 25,
+      "trailer": "https://www.youtube.com/watch?v=PLl99DlL6b4",
+      "year": 1994
+    },
+    {
+      "title": "Good Will Hunting",
+      "description": "A troubled young janitor at MIT, Will Hunting, possesses extraordinary mathematical talent. With the help of a therapist, he confronts his past traumas and works towards realizing his potential.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/bABCBKYBK7A5G1x0FzoeoNfuj2.jpg",
+      "genre": "Drama",
+      "length": 126,
+      "rating": 4.4,
+      "votes": 21,
+      "trailer": "https://www.youtube.com/watch?v=ReIJ1lbL-Q8",
+      "year": 1997
+    },
+    {
+      "title": "A Beautiful Mind",
+      "description": "Based on the life of Nobel laureate John Nash, this film explores his struggles with schizophrenia while making groundbreaking contributions to the field of mathematics.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/zwzWCmH72OSC9NA0ipoqw5Zjya8.jpg",
+      "genre": "Drama",
+      "length": 135,
+      "rating": 3.8,
+      "votes": 18,
+      "trailer": "https://www.youtube.com/watch?v=EajIlG_OCvw",
+      "year": 2001
+    },
+    {
+      "title": "The Pursuit of Happyness",
+      "description": "Inspired by a true story, this drama follows Chris Gardner, a struggling salesman, and his young son as they face homelessness while he pursues an internship at a prestigious stock brokerage firm.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/f6l9rghSHORkWLurUGJhaKAiyjY.jpg",
+      "genre": "Drama",
+      "length": 117,
+      "rating": 4.1,
+      "votes": 22,
+      "trailer": "https://www.youtube.com/watch?v=DMOBlEcRuw8",
+      "year": 2006
+    },
+    {
+      "title": "12 Years a Slave",
+      "description": "Based on the memoir of Solomon Northup, a free African American man who was kidnapped and sold into slavery in the 19th century, this film depicts his harrowing journey and fight for freedom.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/xdANQijuNrJaw1HA61rDccME4Tm.jpg",
+      "genre": "Drama",
+      "length": 134,
+      "rating": 4.3,
+      "votes": 24,
+      "trailer": "https://www.youtube.com/watch?v=z02Ie8wKKRg",
+      "year": 2013
+    },
+    {
+      "title": "Manchester by the Sea",
+      "description": "Lee Chandler, a withdrawn janitor, returns to his hometown following a family tragedy and must confront painful memories and relationships. The film explores grief, forgiveness, and redemption.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/e8daDzP0vFOnGyKmve95Yv0D0io.jpg",
+      "genre": "Drama",
+      "length": 137,
+      "rating": 4.0,
+      "votes": 16,
+      "trailer": "https://www.youtube.com/watch?v=z02Ie8wKKRg",
+      "year": 2016
+    },
+  
+    {
+      "title": "The Shape of Water",
+      "description": "In a Cold War-era government laboratory, a mute janitor forms a unique bond with an amphibious creature held captive. This visually stunning drama combines romance, fantasy, and social commentary.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/9zfwPffUXpBrEP26yp0q1ckXDcj.jpg",
+      "genre": "Drama",
+      "length": 123,
+      "rating": 3.9,
+      "votes": 20,
+      "trailer": "https://www.youtube.com/watch?v=9NJj12tJzqc",
+      "year": 2017
+    },
+    {
+      "title": "Moonlight",
+      "description": "This coming-of-age drama tells the story of Chiron, a young African American man growing up in a rough Miami neighborhood, as he grapples with his identity and sexuality in three distinct stages of his life.",
+      "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/4911T5FbJ9eD2Faz5Z8cT3SUhU3.jpg",
+      "genre": "Drama",
+      "length": 111,
+      "rating": 4.5,
+      "votes": 25,
+      "trailer": "https://www.youtube.com/watch?v=9NJj12tJzqc",
+      "year": 2016
+    }
+
+      {
+    "title": "Titanic",
+    "description": "Set against the backdrop of the ill-fated maiden voyage of the RMS Titanic, this epic romance follows Jack, a penniless artist, and Rose, an upper-class young woman, who fall in love despite the ship's impending tragedy. Their love story unfolds amidst the grandeur of the Titanic and the dramatic events that unfold as the ship meets its tragic fate.",
+    "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/u24jqgSB8YTRRGNp3nmoLAdFdkj.jpg",
+    "genre": "Romance",
+    "length": 195,
+    "rating": 4.7,
+    "votes": 29,
+    "trailer": "https://www.youtube.com/watch?v=I7c1etV7D7g",
+    "year": 1997
+  },
+  {
+    "title": "Pride and Prejudice",
+    "description": "Based on Jane Austen's classic novel, this film tells the story of Elizabeth Bennet, a witty and independent young woman, and Mr. Darcy, a wealthy and reserved aristocrat. Their initial misunderstandings and prejudices give way to a deep and passionate love that defies societal norms in 19th-century England.",
+    "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/iqKmKHgN05Ofn3K4woCNL5ksKnv.jpg",
+    "genre": "Romance",
+    "length": 129,
+    "rating": 4.6,
+    "votes": 23,
+    "trailer": "https://www.youtube.com/watch?v=Ur_DIHs92NM",
+    "year": 2005
+  },
+  {
+    "title": "La La Land",
+    "description": "Mia, an aspiring actress, and Sebastian, a jazz musician, pursue their dreams in Los Angeles while navigating the complexities of their budding romance. This modern musical explores the sacrifices and challenges of following one's passion while trying to maintain a loving relationship.",
+    "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/7cKs9G0GUMDtIs7E4j8CHEYIWV1.jpg",
+    "genre": "Romance",
+    "length": 128,
+    "rating": 4.5,
+    "votes": 26,
+    "trailer": "https://www.youtube.com/watch?v=0pdqf4P9MB8",
+    "year": 2016
+  },
+  {
+    "title": "Before Sunrise",
+    "description": "Jesse, an American traveler, and Céline, a French student, meet on a train in Europe. They decide to spend a magical night together in Vienna, knowing it may be their only chance. This film captures the beauty of fleeting connections and the profound impact of a single night on two people's lives.",
+    "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/83yM1DeI7z8A3xfBuzPVFhlVhqW.jpg",
+    "genre": "Romance",
+    "length": 101,
+    "rating": 4.7,
+    "votes": 25,
+    "trailer": "https://www.youtube.com/watch?v=6MUcuqbGTxc",
+    "year": 1995
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "description": "Hazel and Gus, two teenagers with cancer, meet at a support group and form a deep bond. As they navigate the challenges of their illnesses, they embark on a journey of love, friendship, and making the most of their limited time together.",
+    "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ep7dF4QR4Mm39LI958V0XbwE0hK.jpg",
+    "genre": "Romance",
+    "length": 126,
+    "rating": 4.6,
+    "votes": 22,
+    "trailer": "https://www.youtube.com/watch?v=9ItBvH5J6ss",
+    "year": 2014
+  },
+  {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "description": "Joel and Clementine undergo a groundbreaking procedure to erase their memories of each other after a painful breakup. As the memories are slowly erased, they rediscover the beauty and pain of their relationship, questioning whether it's worth forgetting.",
+    "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
+    "genre": "Romance",
+    "length": 108,
+    "rating": 4.5,
+    "votes": 24,
+    "trailer": "https://www.youtube.com/watch?v=07-QBnEkgXU",
+    "year": 2004
+  },
+  {
+    "title": "500 Days of Summer",
+    "description": "This unconventional romance explores the nonlinear journey of Tom, a greeting card writer, and his complex relationship with Summer, his free-spirited co-worker. The film examines the ups and downs of love, highlighting the differences between expectations and reality.",
+    "poster": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/f9mbM0YMLpYemcWx6o2WeiYQLDP.jpg",
+    "genre": "Romance",
+    "length": 95,
+    "rating": 4.4,
+    "votes": 28,
+    "trailer": "https://www.youtube.com/watch?v=PsD0NpFSADM",
+    "year": 2009
+  },
+  {
+    "title": "Romeo + Juliet",
+    "description": "Baz Luhrmann's modern adaptation of Shakespeare's classic tragedy follows the passionate love affair between Romeo and Juliet, two young members of feuding families in Verona Beach. Their love defies the odds and leads to a tragic and unforgettable conclusion.",
+    "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/a0FsFzxmY61NKnCOutrNuQaq1ik.jpg",
+    "genre": "Romance",
+    "length": 120,
+    "rating": 4.7,
+    "votes": 21,
+    "trailer": "https://www.youtube.com/watch?v=4VBsi0VxiLg",
+    "year": 1996
+  },
+  {
+    "title": "Silver Linings Playbook",
+    "description": "Pat, a man with bipolar disorder, and Tiffany, a young widow, form an unlikely bond as they both struggle with personal challenges. Through their quirky and genuine connection, they discover hope, healing, and the potential for a second chance at love.",
+    "poster": "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/y7iOVneBvITlBdhy6tVqXVOa1Js.jpg",
+    "genre": "Romance",
+    "length": 122,
+    "rating": 4.3,
+    "votes": 20,
+    "trailer": "https://www.youtube.com/watch?v=kVS-6k2tQAA",
+    "year": 2012
+  }
+]
+
+
+  ]
+  
+  

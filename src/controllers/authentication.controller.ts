@@ -1,79 +1,109 @@
 import express from 'express'
-import { getUserByEmail } from "./users.controller";
-import prisma from '../../db/client';
+import prisma from '../../db/client'
+import { generateUsername } from '../helpers/generateUsername'
 
 
 
 
 
+export const createUser = async (req: express.Request, res: express.Response) => {
+	try {
+		const { email} = req.body
 
 
-
-export const protectedRequest = async (req: express.Request, res: express.Response) => {
-    res.send({message: "Protected Request"})
+		if (!email) {
+			return res.status(400).json({ message: 'Missing required fields' })
+		}
+		const userExists = await prisma.user.findUnique({ where: { email: email } })
+		if (userExists) {
+			return res.status(409).json({ message: 'Email already in use' })
+		}
+		const username = generateUsername()
+		const newUser = await prisma.user.create({ data: { username, email } })
+		return res.status(201).json(newUser)
+	} catch (error) {
+		return res.status(500).json({ message: 'Internal server error', error: error.message })
+	}
 }
 
 
 
-export const login = async (req: express.Request, res: express.Response)=> {
-    try {
-        const { email, password } = req.body;
-        
-        if (!email || !password) {
-            return res.status(400).json({ message: 'Missing required fields' });
-        }
+export const loginAuth0 = async (req: express.Request, res: express.Response) => {
+	try {
+		const { email } = req.body
+		if (!email) {
+			return res.status(400).json({ message: 'Missing required fields' })
+		}
+		const user = await prisma.user.findUnique({ where: { email: email } })
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' })
+		}
 
-        const user = await getUserByEmail(email)
-        if (!user) {
-            return res.status(400).json({ message: 'User Not Found' });
-        }
+		
 
-        if (user.password !== password) {
-            return res.status(400).json({ message: 'Invalid credentials' });
-        }
-
-        
-
-        return res.status(200).json({ message: 'Login successful' });
-    } catch (error) {
-        return res.status(500).json({ message: 'Internal server error' });
-    }
-};
-
-
-export const logout = async (req: express.Request, res: express.Response) => {
-    try {
-       
-        return res.status(200).json({ message: 'Logout successful' });
-    } catch (error) {
-        return res.status(500).json({ message: 'Internal server error' });
-    }
-};
-
-
-export const register = async (req: express.Request, res: express.Response) => {
-const { email, username, password } = req.body   
- try {
-        
-        if (!email || !username || !password) {
-            return res.status(400).json({ message: 'Missing required fields' })
-        }
-        const existingUser = await getUserByEmail(email)
-
-        if (existingUser) {
-            return res.status(400).json({ message: 'User already exists' })
-        }
-
-        const user = await prisma.user.create({data: {
-            email,
-            username,
-            password,
-       } })
-        return res.status(201).json({ message:user }).end()
-
-    }
-    catch (error) {
-        return res.status(500).json({ message: 'Internal server error' })
-    }
+		return res.status(200).json({ message: 'Logged in!' })
+	} catch (error) {
+		return res.status(500).json({ message: 'Internal server error', error: error.message })
+	}
 }
 
+
+
+
+export const updateUser = async (req: express.Request, res: express.Response) => {
+	try {
+		const { id } = req.params
+		const { username, email } = req.body
+		const user = await prisma.user.findUnique({ where: { id: parseInt(id) } })
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' })
+		}
+		const updatedUser = await prisma.user.update({
+			where: { id: parseInt(id) },
+			data: {
+				username: username || user.username,
+				email: email || user.email,
+			}
+		})
+		return res.status(200).json(updatedUser)
+	} catch (error) {
+		return res.status(500).json({ message: 'Internal server error', error: error.message })
+	}
+}
+export const updateUserByName = async (req: express.Request, res: express.Response) => {
+	try {
+		const { user } = req.params		
+		const {  username, email } = req.body
+		const existingUser = await prisma.user.findUnique({ where: { username: user } })
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' })
+		}
+		const updatedUser = await prisma.user.update({
+			where: { username: user },
+			data: {
+				username: username || existingUser.username,
+				email: email || existingUser.email,
+			}
+		})
+		return res.status(200).json(updatedUser)
+	} catch (error) {
+		return res.status(500).json({ message: 'Internal server error', error: error.message })
+	}
+}
+
+export const deleteUser = async (req: express.Request, res: express.Response) => {
+	try {
+		const { email } = req.body
+		if (!email) {
+			return res.status(400).json({ message: 'Missing required fields' })
+		}
+		const user = await prisma.user.findUnique({ where: { email: email } })
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' })
+		}
+		const deletedUser = await prisma.user.delete({ where: { email: email } })
+		return res.status(200).json(deletedUser)
+	} catch (error) {
+		return res.status(500).json({ message: 'Internal server error', error: error.message })
+	}
+}
